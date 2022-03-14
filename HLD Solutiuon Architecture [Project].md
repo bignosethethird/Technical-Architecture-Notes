@@ -521,169 +521,7 @@ Figure: Application integration
 
 
 
-# TO-BE Information Architecture
 
-## TO-BE Information Flows in Application
-
-Figure: Information Flow
-
-The information flows are summarized in Table xx and described in detail below.
-
-Table: Information flows
-
-Ref|Source|Destination|Description|Frequency|Size
----|------|-----------|-----------|---------|----
-1|Client servers|Client|Client content data deployment|Daily|TBA
-2|Client|Client servers|Performance data|Operational|TBA
-3|ODS|Client servers|Parts availability update|Daily|200KB
-4|Product Search|Client servers|Real-time parts search data|Operational|TBA
-
-### Master Data Management
-
-There is no MDM requirement for this project. There are no MDM issues that arise from the implementation of this stage of the project.
-
-### The Value of Created Information
-
-At present, the information created by this application is limited to the following:
-
-Table: Created information
-
-Ref|Information|Description|Level of detail|Usage
----|-----------|-----------|---------------|-----
-1|User Interactions|Every user action is logged|Location and user-action level|Usage analysis
-2|Client system|All system events|Timestamp|Perf. analysis
-
-### Data Ownership
-
-All data on this solution is owned by [Company].
-
-## Information Flows – Product Search Client
-
-TBA
-
-## Information Flows – Direct Client
-
-TBA
-
-## Business Intelligence
-
-TBA
-
-### Business Performance Monitoring  
-
-TBA
-
-### Business Activity Monitoring
-
-TBA
-
-### Modelling
-
-There is no What-If scenario modeling requirement for this project.
-
-### Data Mining
-
-There is no data mining requirement for this project. It is expected that requirements will eventually emerge. All the necessary components are in place to implement this. The current infrastructure is anticipated to be able to adequately cope with the implementation of these requirements. 
-
-### Reporting (Pre–defined)
-
-There is no pre-built business reporting requirement for this project. However, there is a reporting function that currently delivers performance reports for the purpose of support.
-
-### Reporting (Ad-hoc)
-
-There is no ad-hoc business reporting requirement for this project. However, there is a reporting function that is able to deliver this, should it be required in the future.
-
-## Data Interfaces
-
-### Data Interface #1: [Example]
-
-### Data Interface #2: [Example]
-
-## [PROJECT] Application Database Design
-
-[Repeat this section if thereare multiple databases]
-
-### Metadata Model
-
-Figure: Client Application Metadata Model
-
-Table: Metadata CRUD
-
-Entity|Description|CRUD|Sourced from / Mastered by
-------|-----------|----|--------------------------
-Client|Determines content to be displayed|R|Content
-Users|Authenticates support users|R|Client
-Logging|Logs events|C|Client & Content
-
-
-### Initial Data Take-on
-
-This solution does not require and initial data take-on.
-
-### Data Partner Services
-
-No data is directly provided by other third-party data partners.
-
-### Logical Database Design
-
-
-Figure: Event Management database design
-
-
-Figure: Content Management database design
-
-
-Figure: Logging database design
-
-
-### Physical Data Architecture
-
-The back-end RDBMS is SQL Server 20XX SP2 and is hosted by [Company] in its data centre. The database holds configurations, user metrics and client content. The full-text search function is reserved for in the design but is not currently used.
-
-Table: Database Architecture for all environments
-
-**Database Instance:.\[PROJECT]**
-
-Database:|APPDB|Mount point|Size GB|%Growth
----------|-----|-----------|-------|-------
-|Data|G:|1G|
-|Indexes|G:||
-|Data Log|H:|
-Table Partitions|None|N/A|N/A
-|Full-Text Search data|K:|1G|
-|Full-Text Search indexes|K:|1G|
-
-Database:|REPORTDB|Mount point|Size GB|%Growth
----------|-----|-----------|-------|-------
-|Data|G:|1G|
-|Indexes|G:||
-|Data Log|H:|
-Table Partitions|None|N/A|N/A
-|Full-Text Search data|K:|1G|
-|Full-Text Search indexes|K:|1G|
-
-
-Database:|TEMPDB|Mount point|Size GB|%Growth
----------|-----|-----------|-------|-------
-|Temp Data|I:|1G|
-|Temp Indexes|I:||
-
-
-## Data Quality and Integrity
-
-There are no explicit data quality or integrity requirements.
-
-### Reconciliation
-
-No data on this application needs to be reconciled.
-
-### Data Quality Controls
-
-There are no checking mechanisms that verify data quality
-
-### Recovery
-
-It is not possible to recover poor-quality data.
 
 # TO-BE Network Architecture
 
@@ -859,26 +697,26 @@ Table: Server IP Configuration - Server-specific
 
 Server Type|DNS Name|IP
 -----------|--------|---
-DB|PVUKDEVKSKDB01.UKROI.[COMPANY].ORG|New
-APP|PVUKDEVKSKAPP01.UKROI.[COMPANY].ORG|New
-WEB|PVUKDEVKSKIIS01.UKROI.[COMPANY].ORG|New
+DB|PVUKDEVKSKDB01.[DOMAIN].[COMPANY].ORG|New
+APP|PVUKDEVKSKAPP01.[DOMAIN].[COMPANY].ORG|New
+WEB|PVUKDEVKSKIIS01.[DOMAIN].[COMPANY].ORG|New
 SCM|TBA|New
 
 **UAT Environment**
 
 Server Type|DNS Name|IP
 -----------|--------|---
-DB|PVUKTSTKSKDB01.UKROI.[COMPANY].ORG|172.21.181.61/28
-APP|PVUKTSTKSKAPP01.UKROI.[COMPANY].ORG|172.21.181.62/28
-WEB|PVUKTSTKSKIIS01.UKROI.[COMPANY].ORG|172.21.181.63/27
+DB|PVUKTSTKSKDB01.[DOMAIN].[COMPANY].ORG|172.21.181.61/28
+APP|PVUKTSTKSKAPP01.[DOMAIN].[COMPANY].ORG|172.21.181.62/28
+WEB|PVUKTSTKSKIIS01.[DOMAIN].[COMPANY].ORG|172.21.181.63/27
 
 **PRODUCTION Environment**
 
 Server Type|DNS Name|IP
 -----------|--------|---
-DB|PVUKPRDKSKDB01.UKROI.[COMPANY].ORG|172.21.177.180/28
-APP|PVUKPRDKSKAPP01.UKROI.[COMPANY].ORG|172.21.177.164/28
-WEB|PVUKPRDKSKIIS01.UKROI.[COMPANY].ORG|172.21.176.137/27
+DB|PVUKPRDKSKDB01.[DOMAIN].[COMPANY].ORG|172.21.177.180/28
+APP|PVUKPRDKSKAPP01.[DOMAIN].[COMPANY].ORG|172.21.177.164/28
+WEB|PVUKPRDKSKIIS01.[DOMAIN].[COMPANY].ORG|172.21.176.137/27
 
  
 Table: Server Gateways and VLAN
@@ -953,22 +791,22 @@ DEV Environment
 
 Share|Shared from|Access
 ---|---|---
-\\PVUKDEVSKAPP01.UKROI.[COMPANY].ORG\[project]\in|F:\Data\[project]\in|Everyone
-\\PVUKDEVSKAPP01.UKROI.[COMPANY].ORG\[project]\out|F:\Data\[project]\out|Everyone
+\\PVUKDEVSKAPP01.[DOMAIN].[COMPANY].ORG\[project]\in|F:\Data\[project]\in|Everyone
+\\PVUKDEVSKAPP01.[DOMAIN].[COMPANY].ORG\[project]\out|F:\Data\[project]\out|Everyone
 
 UAT Environment
 
 Share|Shared from|Access
 ---|---|---
-\\PVUKTSTKSKAPP01.UKROI.[COMPANY].ORG\[project]\in|F:\Data\[project]\in|Everyone
-\\PVUKTSTKSKAPP01.UKROI.[COMPANY].ORG\[project]\out|F:\Data\[project]\out|Everyone
+\\PVUKTSTKSKAPP01.[DOMAIN].[COMPANY].ORG\[project]\in|F:\Data\[project]\in|Everyone
+\\PVUKTSTKSKAPP01.[DOMAIN].[COMPANY].ORG\[project]\out|F:\Data\[project]\out|Everyone
 
 PRODUCTION Environment
 
 Share|Shared from|Access
 ---|---|---
-\\PVUKPRDKSKAPP01.UKROI.[COMPANY].ORG\[project]\in|F:\Data\[project]\in|Everyone
-\\PVUKPRDKSKAPP01.UKROI.[COMPANY].ORG\[project]\out|F:\Data\[project]\out|Everyone
+\\PVUKPRDKSKAPP01.[DOMAIN].[COMPANY].ORG\[project]\in|F:\Data\[project]\in|Everyone
+\\PVUKPRDKSKAPP01.[DOMAIN].[COMPANY].ORG\[project]\out|F:\Data\[project]\out|Everyone
 
 
 Network services are consumed by the servers and the client devices, as detailed below:
@@ -1088,21 +926,21 @@ All client devices are based on this build. The client devices are not registere
 
 The build features the following:
 
-    • The build is based on the XXXX Operating System.
+    * The build is based on the XXXX Operating System.
 
-    • The client boots up into a default local user account without password authentication. The user account itself is, however, strongly password-protected. This account can only execute client-related processes. 
+    * The client boots up into a default local user account without password authentication. The user account itself is, however, strongly password-protected. This account can only execute client-related processes. 
 
-    • The client has a local administrator account which is password-protected with a strong password. 
+    * The client has a local administrator account which is password-protected with a strong password. 
 
-    • The client boots up in a local user account and the [PROJECT] Application Launch service is started. This is responsible for launching client applications based on configuration settings.
+    * The client boots up in a local user account and the [PROJECT] Application Launch service is started. This is responsible for launching client applications based on configuration settings.
 
-    • There is no desktop screen or start bar on the screen. With no client application running, the screen displays a neutral grey. 
+    * There is no desktop screen or start bar on the screen. With no client application running, the screen displays a neutral grey. 
 
-    • The only way to invoke any response from the device when no interactive application runs, is through the use of a plugged-in keyboard with the Ctrl-Alt-Del key combination.
+    * The only way to invoke any response from the device when no interactive application runs, is through the use of a plugged-in keyboard with the Ctrl-Alt-Del key combination.
 
-    • No network port restrictions are in place.
+    * No network port restrictions are in place.
 
-    • The client devices are not part of the XXXX Active Directory (AD) domain.
+    * The client devices are not part of the XXXX Active Directory (AD) domain.
 
 ### Servers on the network
 
