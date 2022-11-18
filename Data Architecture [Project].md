@@ -12,17 +12,17 @@ This [project] is a [functional description].
 
 The purpose of this Data Architecture Document (DAD) is to outline the data management principles and designs that underpin the [project]. Specifically it provides:
 
-•	A description of the contextual, conceptual and logical data models that holds the core information objects that support the intended application
-•	The high level approach used to exploit the data models in the targeted solution to achieve a seamless data flow and timely delivery, as described by the non-functional requirements
-•	An overview of all the transformations that the data will undergo
-•	Specifications of what constitutes acceptable data quality and the approaches that will be used to achieve that data quality
-•	A summary of all automation processes that relate to the initial data take-on, preparation, ongoing management, rationalization, cleansing and migrating of data
-•	An overview of reports (tabular and graphic) that will be produced as part of the overall solution, and a brief overview of any reporting tools used to produce these.
-•	An overview of the types of data analysis and data science-based business intelligence that will be performed on the data
-•	The high level design of how security is implemented at a data level, as opposed to the security at a network of application level
-•	A classification of what data into the enterprise’s data classification scheme
-•	Backing up and data vaulting strategies
-•	Recoverability strategies on loss of data
+* A description of the contextual, conceptual and logical data models that holds the core information objects that support the intended application
+* The high level approach used to exploit the data models in the targeted solution to achieve a seamless data flow and timely delivery, as described by the non-functional requirements
+* An overview of all the transformations that the data will undergo
+* Specifications of what constitutes acceptable data quality and the approaches that will be used to achieve that data quality
+* A summary of all automation processes that relate to the initial data take-on, preparation, ongoing management, rationalization, cleansing and migrating of data
+* An overview of reports (tabular and graphic) that will be produced as part of the overall solution, and a brief overview of any reporting tools used to produce these.
+* An overview of the types of data analysis and data science-based business intelligence that will be performed on the data
+* The high level design of how security is implemented at a data level, as opposed to the security at a network of application level
+* A classification of what data into the enterprise’s data classification scheme
+* Backing up and data vaulting strategies
+* Recoverability strategies on loss of data
 
 ## Document Scope 
 
