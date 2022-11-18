@@ -100,14 +100,6 @@ The contextual data model and data pipeline describes how data is mapped to the 
 
 
 
-
-
-
-
-
-
-
-
 ## Conceptual Data Architecture
 
 ### 	Overview
@@ -149,11 +141,14 @@ This section describes the physical implementation of the databases, whether the
 ### 	Data Volumetrics
 
 Table 2 lists the estimated data traffic for the database in a typical production setting. This is useful when determining storage design and network design, and ultimately in the database design where incoming streamed data could possibly get lost if it can’t handle the influx.
-Operation	Transactions per Minute (TPM)	Data volume per transaction in KB	Data volume per second (KB/s)
-Insert			KB/s
-Select 			KB/s
-Update			KB/s
-Delete			KB/s
+
+|Operation|Transactions per Minute (TPM)|Data volume per transaction in KB|Data volume per second (KB/s)|
+|---------------------------------------|---------------------------------|-----------------------------|
+|Insert			|KB/s|||
+|Select 		|KB/s|||
+|Update			|KB/s|||
+|Delete			|KB/s|||
+
 Table 2 Estimated Data traffic
 
 ### 	Physical tablespaces on the server
@@ -163,25 +158,39 @@ Table 2 Estimated Data traffic
 The tables below show the physical database architecture for all environments, where only one tablespace is used. There is no partitioning of any data tables.
 
 Database Instance: [PROJECT]
-Database:	APPDB	Mount 	Size GB	%Growth
-Data	Tablespace 1	G:		
-Indexes	Tablespace 1	H:		
-Data Log	Tablespace 1	I:		
-Table Partitions		None	N/A	N/A
-Full-Text Search data		K:	1G	
-Full-Text Search indexes		K:	1G	
+
+Database: APPDB
+
+|Storage|Mount|Size GB|%Growth|
+|-------|-----|-------|-------|
+|Data Tablespace 1|G:|||
+|Indexes Tablespace 1|H:|||
+|Data Log Tablespace 1|I:|||
+|Table Partitions	|None|N/A|N/A|
+|Full-Text Search data	|K:|1G||
+|Full-Text Search indexes|K:|1G||
+
 Table 3 Application database server mount points
 
-Database:	REPORTDB	Mount 	Size GB	%Growth
-Data	Tablespace 1	G:	TBA	
-Indexes	Tablespace 1	H:	TBA	
-Data Log	Tablespace 1	I:	TBA	
-Table Partitions		None	N/A	N/A
-Full-Text Search data		K:	TBA	
-Full-Text Search indexes		K:	TBA	
-Table 4 Report Database server mounts  Database:	TEMPDB	Mount 	Size GB	%Growth
-Temp Data		J:	TBA	
-Temp Indexes		J:	TBA	
+Database:	REPORTDB	
+
+|Storage|Mount|	Size GB|%Growth|
+|-------|-----|--------|-------|
+|Data	Tablespace 1|G:|TBA||
+|Indexes Tablespace 1|H:|TBA||
+|Data Log Tablespace 1|I:|TBA||
+|Table Partitions|None|N/A|N/A|
+|Full-Text Search data|K:|TBA||
+|Full-Text Search indexes|K:|TBA||
+
+Table 4 Report Database server mounts  
+
+Database:	TEMPDB	
+|Storage|Mount|Size GB|%Growth|
+|-------|-----|-------|-------|
+|Temp Data|J:|TBA||
+|Temp Indexes|J:|TBA||
+
 Table 5 TempDB server mount points
 
 ### 	Data Storage Design
