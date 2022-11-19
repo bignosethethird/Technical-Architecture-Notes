@@ -32,16 +32,16 @@ The DAD specifically presents the data-related aspects of the system
 
 This DAD will: 
 
-•	Present the data-oriented design aspects and define them 
-•	Describe the Configurable Items (CI) being implemented
-•	Describe the software interfaces
-•	Describe the performance 
-•	Include design features and the architecture of the project
-•	Describe attributes of the data architecture that relate to non-functional requirements specified in the NFR:
-o	Security
-o	Safety
-o	Performance
-o	Data life cycle, from creation to disposal
+* Present the data-oriented design aspects and define them 
+* Describe the Configurable Items (CI) being implemented
+* Describe the software interfaces
+* Describe the performance 
+* Include design features and the architecture of the project
+* Describe attributes of the data architecture that relate to non-functional requirements specified in the NFR:
+** Security
+** Safety
+** Performance
+** Data life cycle, from creation to disposal
 
 ## Intended Audience 
 
@@ -59,23 +59,33 @@ The table below identifies key design decisions that were specifically made rega
 |DD-01||
 |DD-02||
 
-Table 1 Data Architecture-specific decisions
+_Table 1 Data Architecture-specific decisions_
 
 The design from the Solution Architecture HLD and the design decisions taken from Table 1 above are used to shape the data architecture below.
 
 The decision rationale is based on the following:
 
-### Choice of Database type and vendor
-
-
-
-Other options 
-
-
 
 ### Limits of legacy database vs new database
 
 [Describe limits in the legacy database that were relevant in choosing in choosing the new database, if any.]
+
+Consider the following trade-offs:
+
+Limit on horizontal scaling
+Transactionability and ACID compliance
+Database modelling and flexibility
+
+### Benchmarking comparissons
+
+
+
+
+### Choice of Database type and vendor
+
+
+
+
 
 
 ### Alterntive approches explored with legacy database 
@@ -116,13 +126,13 @@ Here we enumerate the high-level data entities that support the application, and
 
 This section describes the data structures used where structured data is used in the application, e.g. normalised, dimensional, and hierarchical, key-value pairs, streamed data, time-series data and images and documents. Any pertinent characteristics in unstructured data used by the application are also enumerated here.
 
-[Examples:
+[Examples:]
 
 Figure: Event Management database design
 
 Figure: Content Management database design
 
-Figure: Logging database design]
+Figure: Logging database design
 
 
 ## Physical Data Architecture
@@ -144,10 +154,10 @@ Table 2 lists the estimated data traffic for the database in a typical productio
 
 |Operation|Transactions per Minute (TPM)|Data volume per transaction in KB|Data volume per second (KB/s)|
 |---------------------------------------|---------------------------------|-----------------------------|
-|Insert			|KB/s|||
-|Select 		|KB/s|||
-|Update			|KB/s|||
-|Delete			|KB/s|||
+|Insert|... KB/s|||
+|Select|... KB/s|||
+|Update|... KB/s|||
+|Delete|... KB/s|||
 
 Table 2 Estimated Data traffic
 
@@ -211,17 +221,20 @@ Table 5 TempDB server mount points
 [Example for RDBMS storage:]
 
 Server Node:	PVUKxxxyyySQL01 (Database server)
-Local/SAN	OS/Bin/Data/Page	FS	Mapping	Tier	Size(GB)
-SAN	OS	NTFS	C-drive	2	32
-SAN	Page	NTFS	D-drive	2	8
-SAN	Binaries	NTFS	E-drive	2	32
-SAN	Application Data	NTFS	F-drive	2	32
-SAN	DB Data	NTFS	G-drive	2	128
-SAN	DB Indexes	NTFS	H-drive	2	32
-SAN	DB Log	NTFS	I-drive	1	32
-SAN	DB TempDB	NTFS	J-drive	1	32
-SAN	DB Backup	NTFS	J-drive	3	128
-SAN	Fulltext Search	NTFS	K-drive	1	32
+
+|Local/SAN|OS/Bin/Data/Page|FS|Mapping|Tier|Size(GB)|
+|---------|----------------|--|-------|----|--------|
+|SAN|OS|NTFS|C-drive|2|32|
+|SAN|Page|NTFS|D-drive|2|8|
+|SAN|Binaries|NTFS|E-drive|2|32|
+|SAN|Application Data|NTFS|F-drive|2|32|
+|SAN|DB Data|NTFS|G-drive|2|128|
+|SAN|DB Indexes|NTFS|H-drive|2|32|
+|SAN|DB Log|NTFS|I-drive|1|32|
+|SAN|DB TempDB|NTFS|J-drive|1|32|
+|SAN|DB Backup|NTFS|J-drive|3|128|
+|SAN|Fulltext Search|NTFS|K-drive|1|32|
+
 Table 6 DEV Database server storage mounts
 
 ### 	Initial Data Take-on
@@ -276,11 +289,15 @@ Is the replication synchronous (wait for the replication to complete before comm
 ### 	TO-BE Information Classes
 
 [Example of data sets and the respective security classifications. Also indicate what type of operations will be performed to these data sets.]
-Data Type	Source / Mastered by	Security Class	CRUD
-User Data	LDAP	Confidential	R
-Process Events	Application	Internal	CR
-Parts Data	SiDIM	Secret	R
-Search results	SiDIM	Secret	C
+
+|Data Type|Source / Mastered by|Security Class|CRUD|
+|---------|--------------------|--------------|----|
+|User Data|LDAP|Confidential|R|
+|Process Events|Application|Internal|CR|
+|Parts Data|....|Secret|R|
+|Search results|...|Secret|C|
+||||
+
 Table 7 TO-BE Information architecture summary
 
 
@@ -409,6 +426,7 @@ The standard  SA account for SQL Server RDBMS and the “sysdba” account for t
 |--------|---------|----------|-------------|
 |SQL Server|SA|System|All application and system tables and views|
 |Oracle|Sysdba|system|All application and system tables and views|
+|||||
 	
 Table 11 Access privileges for support
 
@@ -428,13 +446,14 @@ Table 12 Access privileges for database development and testing
 ## Auditing
 
 The following database-related events are logged to an audit with timestamped user identifier or process identifier in order to provide a complete trace:
-•	All DDL changes
-•	All changes to static configuration and reference data
-•	All warnings and errors
-•	Backups and restores
-•	Shut-downs and restores of the database management system
-•	User log-ins and log-outs
-•	Process connects and disconnects
+
+* All DDL changes
+* All changes to static configuration and reference data
+* All warnings and errors
+* Backups and restores
+* Shut-downs and restores of the database management system
+* User log-ins and log-outs
+* Process connects and disconnects
 
 The audit log in the case is a table called “audit”. 
 
@@ -470,9 +489,9 @@ There is no ad-hoc business reporting requirement for this project. However, the
 ## Introduction
 This chapter lists the batch processes that are run on the database, which perform the following types for functions: 
 
-•	Function 1
-•	Function 2
-•	Etc…
+* Function 1
+* Function 2
+* Etc…
 
 The batches are controlled by the [SQL Server AT Server, CRON job, Windows AT job, Oracle DBMS_JOB, Airflow, etc…] scheduler.
 
@@ -560,56 +579,54 @@ Reference data sets held by the application are:
 [Data lineage lays out the history of data and all its transformation from creation to consumption and can tell us who owned the data at a given point in time.
 Describe for which data entities data lineage is maintained and how the lineage information is held.]
 
-10.2.4	Data Cleansing and Standardization
+### Data Cleansing and Standardization
 
 [Describe which data entities are cleansed, what aspects are cleansed, and to what format the relevant data is standardised.]
 
-10.2.5	Categorisation of data
+### Categorisation of data
 
 [Describe how the data that is stored and generated by the application would be categorized for possible use in enterprise-wide data lakes and analytics]
 
-10.2.6	Data Enrichment processes
+### Data Enrichment processes
 
 [Describe what data entities would be subject to any data enrichment processes. This may entail the completion of empty fields in rows, for example in data entities such as addresses, engineering parts, supplier details. I can also entail the categorization and linking of rows in each data entity.]
 
-10.2.7	Data Rationalization and Master Data Management
+### Data Rationalization and Master Data Management
 
 [Describe the processes used to identify missing data and duplicate in entities’ data hierarchy.
 Example: 
 There is no MDM requirement for this project. There are no MDM issues that arise from the implementation of this stage of the project.]
 
-10.3	Data Value
+## Data Value
+
 [Describe the value of data that is created within the solution.
 Example:
 At present, the information created by this application is limited to the following:]
 
-Ref	Information	Description	Level of detail	Usage
-
-# User Interactions	Every user action is logged	Location and user-action level	Usage analysis
-
-# Client system	All system events	Timestamp	Perf. analysis
+|Ref|Information|Description|Level of detail|Usage|
+|---|-----------|-----------|---------------|-----|
+|1|User Interactions|Every user action is logged|Location and user-action level|Usage analysis|
+|Client system|All system events|Timestamp|Perf. analysis|
 
 Table 13 Created information
 
-10.4	Data ownership and stewardship
+## Data ownership and stewardship
 
 [Enumerate which corporate entities owns which data.
 Example:  All data on this solution is owned by COMPANY Systems.]
 
 [Enumerate who the data stewards with COMPANY are and what their responsibilities are:]
-Ref	Role	Person(s)	Contact details
 
-# Data owner		
-
-# Data quality steward, business domain A		
-
-# Data quality steward, business domain B		
-
-# Data protection officer	
+|Ref|Role|Person(s)|Contact details|
+|---|----|---------|---------------|
+|1|Data owner||||
+|2|Data quality steward, business domain A|||
+|3|Data quality steward, business domain B|||
+|4|Data protection officer|||
 
 Table 14 Data governance roles
 
-##	General Data Protection Regulation (GDPR)
+## General Data Protection Regulation (GDPR)
 
 [Even if no personal data is held on the databases, then the data breach reporting process needs to be described.]
 
