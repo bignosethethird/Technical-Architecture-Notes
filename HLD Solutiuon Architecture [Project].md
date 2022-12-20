@@ -1,6 +1,8 @@
-High Level Design Solution Architecture:
-[project] 
-Version: ##
+**High Level Design Solution Architecture:**
+
+**[project]**
+
+**Version: []**
 
 
 [This template is based on a hypothetical system upgrade, which means that there is an AS-IS and a TO-BE aspect, so that the impact and business and technology can clearly be understood once this design is implemented. If this were to be a brand new system, there would not be an AS-IS section. The hypothetical design consists of a client-server project that consists of database servers, internet servers and development-support servers, with three environments: DEV, UAT+TEST and PROD, all on virtual networks. The servers are for now modelled as on premise VMs here, but could just as easily be applied to a cloud-based solution.]
@@ -8,92 +10,104 @@ Version: ##
 [Note that the Version number and the Document Identity fields are both automatically updated when checked back into SharePoint]
 
 
-Document Details
-Originator:	[]
-Approver 1:	[]
-Approver 2:	[]
-Authoriser:	[]
-Document Identity:	
+**Document Details**
 
-Approvals
+Document Identity:	[Unique Identifier that DocManagementSystem issues]
 
-Role|Name|Title|Date
-APPROVER|  |SYSTEM DESIGN AUTHORITY|
-APPROVER	|  |ASSISSTANT PROJECT MANAGER|
-APPROVER	|  |SOFTWARE DEVELOPMENT MANAGER|
-APPROVER	|  |SOFTWARE FUNCTIONAL MANAGER|
-REVIEWER	|  |QUALITY ASSURANCE|
+**Approvals**
 
-Distribution
+|Role    |Name   |Title                       |Date|
+|--------|-------|----------------------------|----|
+|Originator|     |                            |    |
+|APPROVER|       |SYSTEM DESIGN AUTHORITY     |    |
+|APPROVER|	 |ASSISSTANT PROJECT MANAGER  |    |
+|APPROVER|	 |SOFTWARE DEVELOPMENT MANAGER|    |
+|APPROVER|       |SOFTWARE FUNCTIONAL MANAGER |    |
+|REVIEWER|	 |QUALITY ASSURANCE           |    |
+|Authoriser|     |                            |    |
+|--------|-------|----------------------------|----|
 
-Name|Copy|Number
----|---|---
-  |  |   
-  |  |  
+**Distribution**
 
+|Name|Copy|Number|
+|---|---|---|
+|  |  |   |
+|  |  |  |
   
-Document Version History
+**Document Version History**
 
-Version	|Date	|Author	|Details
----|---|---|---
- | | | 
- | | | 
+|Version|Date|Author|Details|
+|---|---|---|---|
+| | | | |
+| | | | |
 
 		
 	
-Definitions and Abbreviations
+**Definitions and Abbreviations**
 
-Acronym	|Description
----|---
-AAA|Authentication, Authorization and Auditing
-API|Application Programming Interface
-BI |       	Business Intelligence
-BPM |       	Business Process Management
-CDM  |      	Common Data Model
-CI	|Configurable Items
-CICD|	Continuous Integration and Continuous Deployment
-COTS |      	Commercial Off The Shelf
-CRUD	|Create, Retrieve, Update, Delete
-CSS      |  	Cascading Style Sheet
-DAD	|Data Architecture Document
+Acronym|Description
+-----|---
+AAA  |Authentication, Authorization and Auditing
+API  |Application Programming Interface
+BI   |Business Intelligence
+BPM  |Business Process Management
+CDM  |Common Data Model
+CI   |Configurable Items
+CICD |Continuous Integration and Continuous Deployment
+COTS |Commercial Off The Shelf
+CRUD |Create, Retrieve, Update, Delete
+CSS  |Cascading Style Sheet
+DAD  |Data Architecture Document
 ESB  |Enterprise Service Bus
-ETL/ELT|	Extract, Transform, Load / Extract,, Load, Transform
-GIT	|A better code control and versioning system
-GraphQL|	Hierarchical Graph Query Language
-HLD   |    	High Level Design
-HTML   |    	Hyper Text Mark-up Language
-ICD	|Interface Control Document
-IT	|Information Technology
-JSON|       	JavaScript Object Notation
-MDM  |      	Master Data Management
-MPP	|Massively Parallel Processes
-MVP |       	Minimum Viable Product
-ReST|	Representational State Transfer
-SAN	|Storage Area Network
-SQL	|Structured Query Language
-SSL  |      	Secure Sockets Layer
-TOGAF|	The Open Group Architecture Framework
-UML	|Unified Modelling Language
-XML  |  	Extensible Mark-up Language
+ETL/ELT|Extract, Transform, Load / Extract,, Load, Transform
+GIT    |A better code control and versioning system
+GraphQL|Hierarchical Graph Query Language
+HLD    |High Level Design
+HTML   |Hyper Text Mark-up Language
+ICD    |Interface Control Document
+IT     |Information Technology
+JSON   |JavaScript Object Notation
+MDM    |Master Data Management
+MPP    |Massively Parallel Processes
+MVP    |Minimum Viable Product
+ReST   |Representational State Transfer
+SAN    |Storage Area Network
+SQL    |Structured Query Language
+SSL    |Secure Sockets Layer
+TOGAF  |The Open Group Architecture Framework
+UML    |Unified Modelling Language
+XML    |Extensible Mark-up Language
 
  
 [To update these indexes, Right-click on each list and select “Update entire table”.]
-List of Figures
 
-List of Tables
+**Table of Content**
+
+[Add your word processor's TOC link in here]
+
+**List of Figures**
+
+[Add your word processor's TOC link in here]
+
+**List of Tables**
+
+[Add your word processor's TOC link in here]
  
-CONTENTS
-
-
 
  
 # Scope
+
 ##	Identification
+
 This [project] is a [functional description].
-##	Document Purpose 
+
+## Document Purpose 
+
 The purpose of this High Level Design (HLD) is to present the existing AS-IS solution or target estate against the new TO-BE solution, in terms of the application and technology architectures, in order to illustrate how the new solution will fit in the target estate or replace the existing solution and what the impact to peripheral systems already on the estate might be. The information and data architectures are covered in the Data Architecture Document – see Ref. 5. 
 It also demonstrates how the solution complies with the prevailing core architectural principles and specifically points out any exception from these principles.
-##	Management summary
+
+## Management summary
+
 Specifically it provides:
 •	A bird’s eye view of the system by describing the contextual, conceptual and logical breakdown of the solution. 
 •	Changes or additions of business processes and workflows that are impacted by the introduction of this solution
@@ -102,55 +116,71 @@ Specifically it provides:
 •	Computational hardware, storage and other related system components (crypto-modules, CUDA processing units, AI processing devices, if used)
 •	Networking and security , and their respective technical implementations
 •	Failover prevention and disaster recovery strategies for this solutions
-##	Intended Audience 
+
+## Intended Audience 
+
 The target audience for this document includes business, technical and non-technical, governance, and project management stakeholders. Specific users of this document include solution architects, data architects, developers and test analysts. This HLD uses technical terms which should be understandable to the indicated audience.
  
-##	Document Scope 
+## Document Scope 
+
 This HLD specifically presents the application- and technology-related aspects of the system. The scope of the solution is shown in Figure 1. 
 
 
-##	Enterprise Impact
+## Enterprise Impact
+
 [Describe what the impact to the peripheral systems would be after the deployment of this solution, e.g. what components will be adversely impacted, or made redundant and removed, or will require users to reskill]
 
 
-#AS-IS Baseline Architecture 
+# AS-IS Baseline Architecture 
+
 [There is no need for this AS-IS section if there no existing solution that will be replaced or enhanced by the new solution]
 
 This chapter describes the AS-IS architecture of the existing solution.
-##	AS-IS Contextual architecture
+
+## AS-IS Contextual architecture
+
 [Simple description of the business-context under which the solution currently operates.]
 
 Figure: AS-IS Business-contextual architecture
 
-##	AS-IS Conceptual architecture
+## AS-IS Conceptual architecture
+
 [Show and explant the current user operation in a workflow diagram. Swim lane diagrams with business area or system in each lane]
 
 Figure: AS-IS Conceptual architecture
 
-##	AS-IS Logical architecture
+## AS-IS Logical architecture
+
 [Show the application and computational components, network infrastructure, human interface components and storages currently in use in a figure and tables.]
 
 Figure: AS-IS Logical architecture
 
-###	Component Definitions
+### Component Definitions
+
 [Explanation of the above figure, with brief summary of the technologies involved.]
 
 Definition	Vendor	Explanation
 		
 Table 2 Component definitions and explanations
 
-###	Client technology
+### Client technology
+
 [Explanation with respect to the above figure, e.g. min browser spec, OS]
 
-###	Server technology
+### Server technology
+
 [Explanation with respect to the above figure]
 
-###	Support technology
+### Support technology
+
 [Describe how the AS-IS is supported – does it use VNC, XWindows, RDP, Skype screen share? Who is the current support team? How are software updates performed?]
 
-##	AS-IS Application Architecture
+## AS-IS Application Architecture
+
 [Describe the applications and components in detail, and show their interfaces and how the end result of the business requirements are achieved.]
-##	AS-IS Technical Environments
+
+## AS-IS Technical Environments
+
 [Describe the technical environments that are used to produce the AS-IS design, or are currently supporting the AS-IS design. If they were torn down after the development or deployment, indicate this.
 Example Options:
 1.	The DEV and the UAT environments will be reused for the development and test, the existing PRODUCTION environment will be reused on cut-over.
@@ -298,14 +328,18 @@ Applications:	GIT	Open source License
 	Apache Server	
 Table 9  GIT Version Control server technical details
 
-###	AS-IS UAT/TEST/QA Server Environment
+### AS-IS UAT/TEST/QA Server Environment
+
 [Follow with the above DEV example]
 
-###	AS-IS PROD Server Environment
+### AS-IS PROD Server Environment
+
 [Follow with the above DEV example. It is likely that the production environment will have 2 load-balanced web servers]
 
-##	AS-IS Storage Architecture
-###	AS-IS Storage Overview
+## AS-IS Storage Architecture
+
+### AS-IS Storage Overview
+
 This section describes the storage infrastructure in the architecture. Table 8 shows a solution overview:
 Requirement	Design
 Storage Capacity	This has not been defined yet and is designed for worst-case - see below.
@@ -399,33 +433,43 @@ SAN	Fulltext Search	NTFS	J-drive	1	32
 Table 18 PROD Database server storage mounts
 
 
-##	AS-IS Network Architecture
+## AS-IS Network Architecture
 
 [Show the AS-IS devices, how they are connected to the various networks in data centres, locations and clouds, and the information flow of the most pertinent types of transactions. 
 Indicate what normal network traffic in production use is, and what support traffic is. 
 Also indicate VNets and the network resilience design.]
 
-###	AS-IS DEV Hardware load balancing
+### AS-IS DEV Hardware load balancing
+
 There is no hardware load balancing in this environment.
-###	AS-IS UAT Hardware load balancing
+
+### AS-IS UAT Hardware load balancing
+
 There is no hardware load balancing in this environment.
-###	AS-IS PROD Hardware load balancing
+
+### AS-IS PROD Hardware load balancing
+
 There is hardware load balancing between the two web servers in this environment.
+
 This is achieved on with an F5 network load balancer – see details in Network Architecture chapter.
 Node	HLB Node	Port	Monitor Method	Server down landing page
 PVUKxxxyyyIIS03	PVUKxxxyyyIIS05	80	Ping & HTTP Get every 5 seconds, timeout 16 seconds	TBA
 PVUKxxxyyyIIS04		80	Ping & HTTP Get every 5 seconds, timeout 16 seconds	TBA
 Table 19 PROD Hardware Load Balancing
-###	AS-IS Network Traffic – Client
+
+### AS-IS Network Traffic – Client
+
 Figure: Client network traffic steps between network components
+
 Step	Description	Type	Impact
 #		
 #		
 #		
 #		
-Table 20 Client network traffic Steps
-###	AS-IS Network Traffic – Operational and Support
 
+Table 20 Client network traffic Steps
+
+### AS-IS Network Traffic – Operational and Support
 
 Figure: Operational and Support network traffic Steps
 
@@ -433,13 +477,18 @@ Step	Description	Type	Impact
 #		
 #		
 #		
-#		
+#	
+
 Table 21 Operational and Support network traffic Steps
 
-###	AS-IS Network Resilience
+### AS-IS Network Resilience
+
 There is no network resilience.
-###	AS-IS Client Network Details
+
+### AS-IS Client Network Details
+
 Figure: Test environment connected to the UAT server environment
+
 DEV Environment
 Client Id	Use Case	IP
 #[test case set 1]	[aaa.bbb.ccc.ddd]
@@ -472,12 +521,14 @@ DB	PVUKDEVKSKDB01.[DOMAIN].[Company].ORG	New
 APP	PVUKDEVKSKAPP01.[DOMAIN].[Company].ORG	New
 WEB	PVUKDEVKSKIIS01.[DOMAIN].[Company].ORG	New
 SCM	TBA	New
+
 Table 25 Server IP Configuration – DEV Server-specific
 
 Server Type	IP	Mask	GW	VLAN
 DB	17####7##80	25##5##5##40	17####7##77	343
 APP	17####7##64	25##5##5##40	17####7##61	342
 WEB	17####7##37	25##5##5##24	17####7##34	341
+
 Table 26 DEV Server Gateways and VLAN
 
 ###.3	UAT Environment
@@ -491,6 +542,7 @@ Server Type	IP	Mask	GW	VLAN
 DB	17####7##80	25##5##5##40	17####7##77	346
 APP	17####7##64	25##5##5##40	17####7##61	345
 WEB	17####7##37	25##5##5##24	17####7##34	344
+
 Table 28 UAT Server Gateways and VLAN
 
 ###.4	PRODUCTION Environment
@@ -532,15 +584,20 @@ DNS1 Helper IP	17#####0
 DNS2 Helper IP	17#####0
 VLAN	410
 Table 33  Remote Site Router Configuration
-##0	AS-IS Error Architecture
+
+## AS-IS Error Architecture
+
 [Describe error handling, logging, notifications, error severities, integration with the estate’s operational monitoring system]
 
-##1	AS-IS Security Architecture
+## AS-IS Security Architecture
+
 [Describe pertinent security features, such as encryption on the move and at rest, authentication mechanisms, access-controlled roles and allowed operations.]
-##2	AS-IS Post-Go-Live Architecture
+
+## AS-IS Post-Go-Live Architecture
+
 [Describe the support system in place for this solution, contact details to first line support of the respective vendors involved]
  
-#TO-BE Solution Design
+# TO-BE Solution Design
 This section describes the TO-BE architecture of the future solution that will be applied.
 ##	TO-BE Contextual Architecture
 [Simple description of the business-context under which the solution currently operates. Clearly indicate the changes if any between the AS-IS and the TO-BE versions.]
@@ -566,21 +623,22 @@ Definition	Vendor	Explanation
 		
 Table 34 Component definitions and explanations
 
-###	Client technology
+### Client technology
+
 [Explanation with respect to the above figure, e.g. min browser spec, OS, if different to the AS-IS ]
 
-###	Server technology
+### Server technology
+
 [Explanation with respect to the above figure, if different to the AS-IS]
 
 
-###	Support technology
+### Support technology
+
 [Describe how the TO-BE is supported if different to the AS-IS]
 
-
-
-
  
-##	TO-BE Technical Environments
+## TO-BE Technical Environments
+
  [Describe the technical environments that will be deployed, if they are different to the AS-IS. If they will be torn down after the development or deployment, indicate this. Example: 3 environments. Normally QA, TEST and UAT are separate environments]
 
 [Describe the technical environments that are used to produce the AS-IS design, or are currently supporting the AS-IS design. If they were torn down after the development or deployment, indicate this.
@@ -594,11 +652,15 @@ UAT/TEST/QA	Test,QA,User Acceptance	Active
 PROD	Production	Active
 Table 35 Summary of TO-BE technical environments
 
-###	TO-BE DEV Environment
-###	TO-BE UAT Environment
-###	TO-BE PROD Environment
+### TO-BE DEV Environment
 
-###	TO-BE Client environment
+### TO-BE UAT Environment
+
+### TO-BE PROD Environment
+
+
+### TO-BE Client environment
+
 [Describe the technical aspects of the client – usually a device that support a thin-client interface such as a browser]
 
 Item	Specification
@@ -1340,18 +1402,25 @@ Our systems are secure and legal
 Cost-effective solutions
 We will use IT to reduce overall operating costs of the business		
 Table 91 Assessment against IT principles
+
 ##	Assessment against Information principles
+
 ###	Integration Principles
-Id	Principle to be met	RAG	Comment
-#Design for group repeatability		
-#Create an agile environment able to respond to business and systems change		
-#The Integration Layer is for integration		
-#Flexible and open exchange of data between applications to minimise application spaghetti		
-#Where practical data should flow through the systems, not be daily batches		
-#Supportability is vital		
-#Our data is6		
+
+Id|Principle to be met|RAG|Comment
+#|Design for group repeatability||
+#|Create an agile environment able to respond to business and systems change||
+#|The Integration Layer is for integration||
+#|Flexible and open exchange of data between applications to minimise application spaghetti||
+#|Where practical data should flow through the systems, not be daily batches||
+#|Supportability is vital||
+
+.. and more	
+
 Table 92 Assessment against Integration principles
+
 ###	Data Principles
+
 Id	Principle to be met	RAG	Comment
 #Corporate data is described in a [Company] System way.		
 #Design for group repeatability		
