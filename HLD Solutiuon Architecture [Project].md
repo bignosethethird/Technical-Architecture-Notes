@@ -154,9 +154,53 @@ Figure: AS-IS Business-contextual architecture
 
 ## AS-IS Conceptual architecture
 
-*[Show and explant the current user operation in a workflow diagram. Swim lane diagrams with business area or system in each lane]*
+*[Show and explant the current user operation in a workflow diagram. Swim lane diagrams with business area or system in each lane.
+This example is rendered using js-sequence-diagrams https://bramp.github.io/js-sequence-diagrams/ ]*
 
-Figure: AS-IS Conceptual architecture
+
+```sequence 
+Title: Online Payment Process with own Payment Service Provider (PSP)
+Customer->Merchant: Place an order
+Merchant->Payment\nGateway: Payment form
+Payment\nGateway-->Merchant: "Paying..."
+Merchant-->Customer: "Paying..."
+Payment\nGateway->Fraud\nChecker: Fraud check
+Fraud\nChecker-->Payment\nGateway: Fraud Fail
+Payment\nGateway-->Merchant: Fraud Fail
+Payment\nGateway->Acquiring\nBank:
+Acquiring\nBank->Card\nSchemes:
+Card\nSchemes->Issuing\nBank: Sufficient funds?
+Issuing\nBank-->Card\nSchemes: Pass/Fail
+Card\nSchemes-->Acquiring\nBank: Pass/Fail
+Acquiring\nBank-->Payment\nGateway: Pass/Fail
+Payment\nGateway-->Merchant: Pass/Fail
+Merchant-->Customer: Pass/Fail
+```
+
+```sequence 
+Title: Online Payment Process with 3rd-party Payment Service Provider (PSP), eg. Stripe, PayPal,
+Customer->Merchant: Place an order
+Merchant->Payment\nService: Payment event
+Merchant->Payment\nService: Payment form\nwith details
+Payment\nService-->Merchant: "Paying..."
+Merchant-->Customer: "Paying..."
+Payment\nService->Wallet\nDatabase: Stores Payment monetary details
+Payment\nService->Ledger\nDatabase: Stores transaction details
+Payment\nService->PSP: Payment monetary details
+PSP->Card\nSchemes:
+Card\nSchemes->Issuing\nBank: Sufficient funds?
+Issuing\nBank-->Card\nSchemes: Pass/Fail
+Card\nSchemes-->PSP: Pass/Fail
+PSP-->Payment\nService: Pass/Fail
+Payment\nService->Wallet\nDatabase: Update merchant
+Payment\nService->Ledger\nDatabase: Update merchant
+Payment\nService-->Merchant: Pass/Fail
+Merchant-->Customer: Pass/Fail
+```
+
+
+
+*Figure: AS-IS Conceptual architecture*
 
 ## AS-IS Logical architecture
 
@@ -1961,8 +2005,13 @@ digraph Webhooks {
 ## Database Replication Interfaces
 
 
-
-
-
-
+```graphviz
+digraph DataReplication {
+    rankdir=LR;
+    size="8,5"
+    DB1 [shape = cylinder, label="DB1"];
+	DB2 [shape = cylinder, label="DB2"];
+	DB1 -> DB2 [dir=both, label="Replication", style="dashed"]
+}
+```
 
