@@ -1,64 +1,68 @@
-**High Level Design Solution Architecture:**
+**High Level Design Solution Architecture**
 
 **[project]**
 
 **Version: []**
 
 
-[This template is based on a hypothetical system upgrade, which means that there is an AS-IS and a TO-BE aspect, so that the impact and business and technology can clearly be understood once this design is implemented. If this were to be a brand new system, there would not be an AS-IS section. The hypothetical design consists of a client-server project that consists of database servers, internet servers and development-support servers, with three environments: DEV, UAT+TEST and PROD, all on virtual networks. The servers are for now modelled as on premise VMs here, but could just as easily be applied to a cloud-based solution.]
+*[This template is based on a hypothetical system upgrade, which means that there is an AS-IS and a TO-BE aspect, so that the impact and business and technology can clearly be understood once this design is implemented. If this were to be a brand new system, there would not be an AS-IS section. The hypothetical design consists of a client-server project that consists of database servers, internet servers and development-support servers, with three environments: DEV, UAT+TEST and PROD, all on virtual networks. The servers are for now modelled as on premise VMs here, but could just as easily be applied to a cloud-based solution.]*
 
-[Note that the Version number and the Document Identity fields are both automatically updated when checked back into SharePoint]
+*[Note that the Version number and the Document Identity fields are both automatically updated when checked back into SharePoint]*
 
 
 **Document Details**
 
-Document Identity:	[Unique Identifier that DocManagementSystem issues]
+Document Identity:	*[Unique Identifier that DocManagementSystem issues]*
 
 **Approvals**
 
-|Role    |Name   |Title                       |Date|
-|--------|-------|----------------------------|----|
-|Originator|     |                            |    |
-|APPROVER|       |SYSTEM DESIGN AUTHORITY     |    |
-|APPROVER|	 |ASSISSTANT PROJECT MANAGER  |    |
-|APPROVER|	 |SOFTWARE DEVELOPMENT MANAGER|    |
-|APPROVER|       |SOFTWARE FUNCTIONAL MANAGER |    |
-|REVIEWER|	 |QUALITY ASSURANCE           |    |
-|Authoriser|     |                            |    |
-|--------|-------|----------------------------|----|
+|Role      |Name   |Title                       |Date|
+|----------|-------|----------------------------|----|
+|Originator|       |SOLUTION ARCHITECT          |    |
+|Approver  |       |SYSTEM DESIGN AUTHORITY     |    |
+|Approver  |	   |ASSISSTANT PROJECT MANAGER  |    |
+|Approver  |	   |SOFTWARE DEVELOPMENT MANAGER|    |
+|Approver  |       |SOFTWARE FUNCTIONAL MANAGER |    |
+|Reviewer  |	   |QUALITY ASSURANCE           |    |
+|Authoriser|       |ENTERPRISE ARCHITECT        |    |
+
 
 **Distribution**
 
 |Name|Copy|Number|
-|---|---|---|
-|  |  |   |
+|----|----|------|
+|  |  |  |
 |  |  |  |
   
 **Document Version History**
 
 |Version|Date|Author|Details|
-|---|---|---|---|
-| | | | |
-| | | | |
+|-------|----|------|-------|
+| | | |
+| | | |
 
 		
 	
 **Definitions and Abbreviations**
 
+*[A list of useful acronyms and abbreviations that are referred to in this this document. Remove superflous ones.]*
+
 Acronym|Description
------|---
-AAA  |Authentication, Authorization and Auditing
-API  |Application Programming Interface
-BI   |Business Intelligence
-BPM  |Business Process Management
-CDM  |Common Data Model
-CI   |Configurable Items
-CICD |Continuous Integration and Continuous Deployment
-COTS |Commercial Off The Shelf
-CRUD |Create, Retrieve, Update, Delete
-CSS  |Cascading Style Sheet
-DAD  |Data Architecture Document
-ESB  |Enterprise Service Bus
+-------|------------
+AAA    |Authentication, Authorization and Auditing
+API    |Application Programming Interface
+BI     |Business Intelligence
+BPM    |Business Process Management
+CDM    |Common Data Model
+CI     |Configurable Items
+CICD   |Continuous Integration and Continuous Deployment
+CORS   |Cross Origin Resource Sharing
+COTS   |Commercial Off The Shelf
+CQRS   |Command and Query Responsibility Segregation
+CRUD   |Create, Retrieve, Update, Delete
+CSS    |Cascading Style Sheet
+DAD    |Data Architecture Document
+ESB    |Enterprise Service Bus
 ETL/ELT|Extract, Transform, Load / Extract,, Load, Transform
 GIT    |A better code control and versioning system
 GraphQL|Hierarchical Graph Query Language
@@ -71,6 +75,8 @@ MDM    |Master Data Management
 MPP    |Massively Parallel Processes
 MVP    |Minimum Viable Product
 ReST   |Representational State Transfer
+RPO    |Recovery Point Objective
+RTO    |Recovery Time Objective
 SAN    |Storage Area Network
 SQL    |Structured Query Language
 SSL    |Secure Sockets Layer
@@ -79,25 +85,27 @@ UML    |Unified Modelling Language
 XML    |Extensible Mark-up Language
 
  
-[To update these indexes, Right-click on each list and select “Update entire table”.]
+*[To update these indexes, Right-click on each list and select “Update entire table”.]*
 
 **Table of Content**
 
-[Add your word processor's TOC link in here]
+*[Add your word processor's TOC link in here - it should look something like this:]*
+
+[TOC]
 
 **List of Figures**
 
-[Add your word processor's TOC link in here]
+*[Add your word processor's TOC link in here]*
 
 **List of Tables**
 
-[Add your word processor's TOC link in here]
+*[Add your word processor's TOC link in here]*
  
 
  
-# Scope
+# Solution Scope
 
-##	Identification
+## Identification
 
 This [project] is a [functional description].
 
@@ -109,13 +117,14 @@ It also demonstrates how the solution complies with the prevailing core architec
 ## Management summary
 
 Specifically it provides:
-•	A bird’s eye view of the system by describing the contextual, conceptual and logical breakdown of the solution. 
-•	Changes or additions of business processes and workflows that are impacted by the introduction of this solution
-•	A overview on changes to operational practices and identifies new required skills due to the resulting business changes and the introduction of new technologies that need to be supported or that the system’s users need to be become acquainted with.
-•	A description of the application and software modules that are at the heart of the solution
-•	Computational hardware, storage and other related system components (crypto-modules, CUDA processing units, AI processing devices, if used)
-•	Networking and security , and their respective technical implementations
-•	Failover prevention and disaster recovery strategies for this solutions
+
+- A bird’s eye view of the system by describing the contextual, conceptual and logical breakdown of the solution. 
+- Changes or additions of business processes and workflows that are impacted by the introduction of this solution
+- A overview on changes to operational practices and identifies new required skills due to the resulting business changes and the introduction of new technologies that need to be supported or that the system’s users need to be become acquainted with.
+- A description of the application and software modules that are at the heart of the solution
+- Computational hardware, storage and other related system components (crypto-modules, CUDA processing units, AI processing devices, if used)
+- Networking and security , and their respective technical implementations
+- Failover prevention and disaster recovery strategies for this solutions
 
 ## Intended Audience 
 
@@ -128,36 +137,36 @@ This HLD specifically presents the application- and technology-related aspects o
 
 ## Enterprise Impact
 
-[Describe what the impact to the peripheral systems would be after the deployment of this solution, e.g. what components will be adversely impacted, or made redundant and removed, or will require users to reskill]
+*[Describe what the impact to the peripheral systems would be after the deployment of this solution, e.g. what components will be adversely impacted, or made redundant and removed, or will require users to reskill]*
 
 
 # AS-IS Baseline Architecture 
 
-[There is no need for this AS-IS section if there no existing solution that will be replaced or enhanced by the new solution]
+*[There is no need for this AS-IS section if there no existing solution that will be replaced or enhanced by the new solution]*
 
 This chapter describes the AS-IS architecture of the existing solution.
 
 ## AS-IS Contextual architecture
 
-[Simple description of the business-context under which the solution currently operates.]
+*[Simple description of the business-context under which the solution currently operates.]*
 
 Figure: AS-IS Business-contextual architecture
 
 ## AS-IS Conceptual architecture
 
-[Show and explant the current user operation in a workflow diagram. Swim lane diagrams with business area or system in each lane]
+*[Show and explant the current user operation in a workflow diagram. Swim lane diagrams with business area or system in each lane]*
 
 Figure: AS-IS Conceptual architecture
 
 ## AS-IS Logical architecture
 
-[Show the application and computational components, network infrastructure, human interface components and storages currently in use in a figure and tables.]
+*[Show the application and computational components, network infrastructure, human interface components and storages currently in use in a figure and tables.]*
 
 Figure: AS-IS Logical architecture
 
 ### Component Definitions
 
-[Explanation of the above figure, with brief summary of the technologies involved.]
+*[Explanation of the above figure, with brief summary of the technologies involved.]*
 
 Definition	Vendor	Explanation
 		
@@ -165,26 +174,28 @@ Table 2 Component definitions and explanations
 
 ### Client technology
 
-[Explanation with respect to the above figure, e.g. min browser spec, OS]
+*[Explanation with respect to the above figure, e.g. min browser spec, OS]*
 
 ### Server technology
 
-[Explanation with respect to the above figure]
+*[Explanation with respect to the above figure]*
 
 ### Support technology
 
-[Describe how the AS-IS is supported – does it use VNC, XWindows, RDP, Skype screen share? Who is the current support team? How are software updates performed?]
+*[Describe how the AS-IS is supported – does it use VNC, XWindows, RDP, Skype screen share? Who is the current support team? How are software updates performed?]*
 
 ## AS-IS Application Architecture
 
-[Describe the applications and components in detail, and show their interfaces and how the end result of the business requirements are achieved.]
+*[Describe the applications and components in detail, and show their interfaces and how the end result of the business requirements are achieved.]*
 
 ## AS-IS Technical Environments
 
-[Describe the technical environments that are used to produce the AS-IS design, or are currently supporting the AS-IS design. If they were torn down after the development or deployment, indicate this.
+*[Describe the technical environments that are used to produce the AS-IS design, or are currently supporting the AS-IS design. If they were torn down after the development or deployment, indicate this.
+
 Example Options:
+
 1.	The DEV and the UAT environments will be reused for the development and test, the existing PRODUCTION environment will be reused on cut-over.
-2.	New environments, in which case these need to be specified at the same level of details as the AS-IS.]
+2.	New environments, in which case these need to be specified at the same level of details as the AS-IS.]*
 
 Environment	|Function	|Status
 ---|---|---
@@ -194,20 +205,24 @@ UAT	|User acceptance	|Mothballed
 QA	|Quality Control 	|Mothballed
 PROD	|Production	|Active
 
-Table 3 Summary of AS-IS technical environments
+*Table 3: Summary of AS-IS technical environments*
 
-###	AS-IS DEV (Development) environment
-[Describe the development environment and how developers code on it. Any particular DevOps processes that are worth noting?]
+### AS-IS DEV (Development) environment
+
+*[Describe the development environment and how developers code on it. Any particular DevOps processes that are worth noting?]*
 
 
 
-###	AS-IS TEST/UAT/QA environment
+### AS-IS TEST/UAT/QA environment
+
 [Describe the TEST and UAT environments in terms of servers and storages and network. Any particular DevOps processes that are worth noting, such as the application’s automatic promotion from DEV to TEST to UAT to QA]
 
-###	AS-IS PROD (Production) environment
+### AS-IS PROD (Production) environment
+
 [Describe the PROD environment in terms of servers and storages and network.]
 
-###	AS-IS Client environment
+### AS-IS Client environment
+
 [Describe the technical aspects of the client – usually a device that support a thin-client interface such as a browser]
 
 Item	Specification
@@ -219,9 +234,9 @@ Programs	Edge Browser Version 9###10##6 (Official build) (64-bit)
 Table 4 AS-IS Client specification
 
 
-##	AS-IS Client Environments details
+## AS-IS Client Environments details
 
-###	AS-IS DEV Client Environment
+### AS-IS DEV Client Environment
 
 The design of the DEV client environment includes capacity for hosting the development of other development projects. One development workstation is required per developer.
 
@@ -248,7 +263,7 @@ Applications:|Visual Studio 20xx|Enterprise License
  
 Table 5 Physical Architecture: DEV-environment client definition
 
-###	AS-IS PROD Client Environment
+### AS-IS PROD Client Environment
 
 The design of the production client environment includes capacity for hosting the application and other standard, peripheral support applications for communications and documentation.
 
@@ -269,9 +284,9 @@ VM Affinity Rule	N/A
 Applications:	Standard apps	Enterprise License
 Table 6 Physical Architecture: PROD-environment client definition
 
-##	AS-IS Server Environments details
+## AS-IS Server Environments details
 
-###	AS-IS DEV Server Environment
+### AS-IS DEV Server Environment
 
 Utilisation:	Database server
 Location:	Development Centre
@@ -314,7 +329,7 @@ Utilisation:	Version Control Server
 Location:	Development Centre
 Device Description	Specification	Notes
 Replication Required	No	
-Operating System	RedHat##	
+Operating System	RedHat## 
 Patch level	Current	
 Patch method	Red Hat YUM	
 CPUs	xx	
@@ -348,7 +363,8 @@ Data Growth	This has not been defined yet and is designed for worst-case
 Archiving	There is no archiving in this trial. No requirements defined yet.
 Data change rate %	Anticipated 1% daily change
 Table 10 Storage Overview
-###	AS-IS DEV Environment Storage Architecture
+### AS-IS DEV Environment Storage Architecture
+
 This section describes the storage architecture for the DEV environment.
 Server Node:	PVUKxxxyyyIIS01 (Web server)
 Local/SAN	OS/Bin/Data/Page	FS	Mapping	Tier	Size(GB)
@@ -378,7 +394,9 @@ SAN	DB TempDB	NTFS	H-drive	1	32
 SAN	DB Backup	NTFS	I-drive	3	128
 SAN	Fulltext Search	NTFS	J-drive	1	32
 Table 13 DEV Database server storage mounts
-###	AS-IS UAT Environment Storage Architecture
+
+### AS-IS UAT Environment Storage Architecture
+
 This section describes the storage architecture for the UAT environment.
 Server Node:	PVUKxxxyyyIIS02 (Web server)
 Local/SAN	OS/Bin/Data/Page	FS	Mapping	Tier	Size(GB)
@@ -400,7 +418,9 @@ SAN	DB TempDB	NTFS	H-drive	1	32
 SAN	DB Backup	NTFS	I-drive	3	128
 SAN	Fulltext Search	NTFS	J-drive	1	32
 Table 15 UAT Database server storage mounts
-###	AS-IS PROD Environment Storage Architecture
+
+### AS-IS PROD Environment Storage Architecture
+
 This section describes the storage architecture for the PROD (Production) environment.
 
 Server Node:	PVUKxxxyyyIIS03 (Web server)
@@ -462,10 +482,10 @@ Table 19 PROD Hardware Load Balancing
 Figure: Client network traffic steps between network components
 
 Step	Description	Type	Impact
-#		
-#		
-#		
-#		
+-		
+-		
+-		
+-		
 
 Table 20 Client network traffic Steps
 
@@ -474,10 +494,10 @@ Table 20 Client network traffic Steps
 Figure: Operational and Support network traffic Steps
 
 Step	Description	Type	Impact
-#		
-#		
-#		
-#	
+-		
+-		
+-		
+-	
 
 Table 21 Operational and Support network traffic Steps
 
@@ -503,9 +523,9 @@ Mask	25##5##5##40
 DNS1	17#####03
 DNS2	17#####03
 Table 23 Test Client IP Configuration – common details
-###	Server Network Connection Details
+### Server Network Connection Details
 
-###.1	Network settings common to all environments
+#### Network settings common to all environments
 
 Network Device Description	IP Address
 DNS	17#####03
@@ -514,7 +534,8 @@ Citrix Terminal Server	17######7
 Gateway Server	See Table 33.
 
 Table 24  Server IP Configurations - Common
-###.2	DEV Environment
+
+#### DEV Environment
 
 Server Type	DNS Name	IP
 DB	PVUKDEVKSKDB01.[DOMAIN].[Company].ORG	New
@@ -531,7 +552,7 @@ WEB	17####7##37	25##5##5##24	17####7##34	341
 
 Table 26 DEV Server Gateways and VLAN
 
-###.3	UAT Environment
+#### UAT Environment
 
 Server Type	DNS Name	IP
 DB	PVUKTSTKSKDB01.[DOMAIN].[Company].ORG	17####8##1/28
@@ -558,13 +579,15 @@ APP	17####7##64	25##5##5##40	17####7##61	348
 WEB	17####7##37	25##5##5##24	17####7##34	347
 Table 30 PROD Server Gateways and VLAN
 
-###	Client Network Connection Details
+### Client Network Connection Details
+
 ###.1	Configuration of Clients on the Network 
 
 Client location	Name	Client Type	IP Address	Format	Patch Info
-#				
-#				
-Table 31 Client IP Configuration - Specific settings
+-			
+-
+
+*Table 31: Client IP Configuration - Specific settings*
 
 Network Setting	Value
 Location Network	Class B. See first 2 octets of location IP in Table
@@ -599,21 +622,21 @@ Table 33  Remote Site Router Configuration
  
 # TO-BE Solution Design
 This section describes the TO-BE architecture of the future solution that will be applied.
-##	TO-BE Contextual Architecture
+## TO-BE Contextual Architecture
 [Simple description of the business-context under which the solution currently operates. Clearly indicate the changes if any between the AS-IS and the TO-BE versions.]
 
 Figure: TO-BE Contextual architecture
-###	TO-BE Conceptual Architecture
+### TO-BE Conceptual Architecture
 
 [Show and explain the current user operation in a workflow diagram. Swim lane diagrams with business area or system in each lane. Clearly indicate the changes if any between the AS-IS and the TO-BE versions.]
 
 
 Figure: TO-BE Conceptual use case for ...
-##	TO-BE Logical Architecture
+## TO-BE Logical Architecture
 [Show the application and computational components, human interface components and storages currently in use. Show in a figure. Clearly indicate the changes if any between the AS-IS and the TO-BE versions]
 
 Figure: Logical architecture of the client solution
-###	TO-BE Component Definitions
+### TO-BE Component Definitions
 
  [Explanation of the above figure, with brief summary of the technologies involved. Indicate the new or changed components.]
 
@@ -672,9 +695,9 @@ Programs	Edge Browser Version 9###10##6 (Official build) (64-bit)
 Table 36 AS-IS Client specification
 
 
-##	TO-BE Client Environments details
+## TO-BE Client Environments details
 
-###	TO-BE DEV Client Environment
+### TO-BE DEV Client Environment
 
 The design of the DEV client environment includes capacity for hosting the development of other development projects. One development workstation is required per developer.
 
@@ -699,7 +722,7 @@ Applications:	Visual Studio 20xx	Enterprise License
 	IIS x.xx	
 Table 37 Physical Architecture: DEV-environment client definition
 
-###	TO-BE UAT Client Environment
+### TO-BE UAT Client Environment
 
 The design of the UAT client environment includes capacity for hosting the application and other standard, peripheral support applications for communications and documentation.
 UAT testing will be conducted in a secure test environment by testers. Testing will commence following user training and completion of the relevant test plans.
@@ -725,7 +748,7 @@ Applications:	Standard apps	Enterprise License
 Table 38 Physical Architecture: UAT-environment client definition
 
 
-###	TO-BE PROD Client Environment
+### TO-BE PROD Client Environment
 
 The design of the production client environment includes capacity for hosting the application and other standard, peripheral support applications for communications and documentation.
 
@@ -747,9 +770,9 @@ Applications:	Standard apps	Enterprise License
 	Test system	System under test with apps and libs
 Table 39 Physical Architecture: PROD-environment client definition
 
-##	TO-BE Server Environments details
+## TO-BE Server Environments details
 
-###	TO-BE DEV Server Environment
+### TO-BE DEV Server Environment
 This section lists the servers in the DEV environment. The code repository service is a shared service between other projects.
 
 Utilisation:	Database Server
@@ -792,7 +815,7 @@ Utilisation:	Version Control Server
 Location:	Development Centre
 Device Description	Specification	Notes
 Replication Required	No	
-Operating System	RedHat##	
+Operating System	RedHat## 
 Patch level	Current	
 Patch method	Red Hat YUM	
 CPUs	xx	
@@ -807,15 +830,15 @@ Applications:	GIT	Open source License
 Table 42  GIT Version Control server technical details
 
 
-###	TO-BE UAT/TEST/QA Server Environment
+### TO-BE UAT/TEST/QA Server Environment
 [Follow the above DEV example]
 
-###	TO-BE PROD Server Environment
+### TO-BE PROD Server Environment
 [Follow the above DEV example. It is likely that the production environment will have 2 load-balanced web servers]
 
 
-##	TO-BE Storage Architecture
-###	TO-BE Storage Overview
+## TO-BE Storage Architecture
+### TO-BE Storage Overview
 This section describes the storage infrastructure in the architecture. Table 9 shows a solution overview:
 Requirement	Design
 Storage Capacity	This has not been defined yet and is designed for worst-case - see below.
@@ -824,7 +847,7 @@ Data Growth	This has not been defined yet and is designed for worst-case
 Archiving	There is no archiving in this trial. No requirements defined yet.
 Data change rate %	Anticipated 1% daily change
 Table 43 Storage Overview
-###	TO-BE DEV Environment Storage Architecture
+### TO-BE DEV Environment Storage Architecture
 This section describes the storage architecture for the DEV environment.
 Server Node:	PVUKxxxyyyIIS01 (Web server)
 Local/SAN	OS/Bin/Data/Page	FS	Mapping	Tier	Size(GB)
@@ -854,7 +877,8 @@ SAN	DB TempDB	NTFS	H-drive	1	32
 SAN	DB Backup	NTFS	I-drive	3	128
 SAN	Fulltext Search	NTFS	J-drive	1	32
 Table 46 DEV Database server storage mounts
-###	TO-BE UAT Environment Storage Architecture
+### TO-BE UAT Environment Storage Architecture
+
 This section describes the storage architecture for the UAT environment.
 Server Node:	PVUKxxxyyyIIS02 (Web server)
 Local/SAN	OS/Bin/Data/Page	FS	Mapping	Tier	Size(GB)
@@ -876,7 +900,8 @@ SAN	DB TempDB	NTFS	H-drive	1	32
 SAN	DB Backup	NTFS	I-drive	3	128
 SAN	Fulltext Search	NTFS	J-drive	1	32
 Table 48 UAT Database server storage mounts
-###	TO-BE PROD Environment Storage Architecture
+### TO-BE PROD Environment Storage Architecture
+
 This section describes the storage architecture for the PROD (Production) environment.
 
 Server Node:	PVUKxxxyyyIIS03 (Web server)
@@ -909,10 +934,11 @@ SAN	Fulltext Search	NTFS	J-drive	1	32
 Table 51 PROD Database server storage mounts
 
  
-##	TO-BE Application Architecture
+## TO-BE Application Architecture
+
 [Describe the applications that makeup the solution and their respective components in detail, and show their interfaces and how the end result of the business requirements are achieved.]
 
-###	[AppName1] Overview
+### [AppName1] Overview
 
  
 Figure 2 [Example application and its components]
@@ -924,22 +950,23 @@ Supervisor
 Monitor					
 Downloader					
 Event Logger					X
+
 Table 52  Application Components for client
 
-###	[AppName2] Overview
+### [AppName2] Overview
 
 [Rinse and repeat for every application in the solution]
 
-##	TO-BE Error Architecture
+## TO-BE Error Architecture
 [Describe error handling, logging, notifications, error severities, integration with the estate’s operational monitoring system]
  
-#TO-BE Network Architecture
+# TO-BE Network Architecture
 
 [Show the TO-BE devices, how they are connected to the various networks in data centres, locations and clouds, and the information flow of the most pertinent types of transactions. 
 Indicate what is normal network traffic in production use, and what is support traffic. 
 Also indicate VNets and the network resilience design.]
 
-##	Network Architecture Overview
+## Network Architecture Overview
 
 Network Design	Required	Reason
 Load Balancing	Yes	Required for webservers, although not currently used.
@@ -949,8 +976,10 @@ Network Performance	No	Not anticipated
 Network Resilience	Yes	Datacentre internal network resilience. Part of [Company] System standard pattern.
 Non group-compliant IP Addressing	No	Use group-compliant IP addressing scheme for client devices and data centre devices
 Table 53 Network Architecture Overview
-##	Network Traffic
-###	Network Traffic – Batch data update
+
+## Network Traffic
+
+### Network Traffic – Batch data update
 
 [Example if batches are run:]
 Figure xx shows the network traffic for daily data updates from the [Company] System data back-end to the client solution. This batch is scheduled to run daily at 06:00. Data take-on to all the client devices is completed by 07:00. The total data load per client device is in the region of 200K. This data is eventually distributed to each client.
@@ -960,70 +989,84 @@ Figure xx shows the network traffic for daily data updates from the [Company] Sy
 Figure: Network flows for batch jobs
 
 Flow	Route	Purpose	Type	Frequency	Volume
-#Data centre	AbInitio server	Initiates data extraction process	Daily	5MB
-#Data centre	Reference data update	ETL process	Daily	5MB
+Data centre	AbInitio server	Initiates data extraction process	Daily	5MB
+Data centre	Reference data update	ETL process	Daily	5MB
 Table 54 Network traffic flows - Batch data update
 No potential network bottlenecks are anticipated.
  Risk	Network	Route	Impact
-#		
-#		
+-		
+-
+
 Table 55 Potential bottlenecks - Batch data update
 
-###	Network Traffic – Operational and Support
+### Network Traffic – Operational and Support
+
 Operational and support traffic is anticipated to exist during standard operating hours in the standard location
 Figure xx shows the network traffic.
 Figure: Network flows for batch jobs
 Flow	Route	Purpose	Type	Network	Frequency	Volume
-#					
-#					
-#					
-#					
-#					
+-					
+-					
+-					
+-					
+-
+
 Table 56 Network traffic flows - Batch data update
 
 No potential network bottlenecks are anticipated.
 
 Risk	Network	Route	Impact
-#		
-#		
+-		
+-
+
 Table 57 Potential bottlenecks - Operational support
-###	Network Traffic – Part Search and Cross reference
+### Network Traffic – Part Search and Cross reference
+
 Figure xx shows the network traffic.
 Figure: Network flows for batch jobs
 Flow	Route	Purpose	Type	Network	Frequency	Volume
-#					
-#					
-#					
-#					
-#					
+-	
+-					
+-					
+-					
+-
+
 Table 58 Network traffic flows – Part Search and cross reference
 No potential network bottlenecks are anticipated.
 Risk	Network	Route	Impact
-#		
-#		
+-		
+-		
 Table 59 Potential bottlenecks - Part Search and cross reference
-###	Network Traffic – Direct Client
+### Network Traffic – Direct Client
+
 Figure xx shows the client network traffic.
+
 Figure: Network flows for client network traffic.
+
 Flow	Route	Purpose	Type	Network	Frequency	Volume
-#					
-#					
-#					
-#					
-#					
-Table 60 Network traffic flows – client network traffic.
+-					
+-					
+-					
+-					
+
+*Table 60: Network traffic flows – client network traffic.*
+
 No potential network bottlenecks are anticipated.
 Risk	Network	Route	Impact
-#		
-#		
+-		
+-
+
 Table 61 Potential bottlenecks - Client network traffic.
-##	Network Resilience
+## Network Resilience
+
 [Example if the solution has network resilience]
 The servers on all the environments are fully resilient. This is conceptually explained below in Figure xx.
-Figure: Conceptual network resilience by interconnecting switches, firewalls and load balancers
-##	Server Network Connection Details
 
-###	Network settings common to all environments
+Figure: Conceptual network resilience by interconnecting switches, firewalls and load balancers
+
+## Server Network Connection Details
+
+### Network settings common to all environments
 
 Network Device Description	IP Address
 DNS	[TBA]
@@ -1031,7 +1074,7 @@ DNS	[TBA]
 Citrix Terminal Server	[TBA]
 Gateway Server	[TBA]
 Table 62  Server IP Configurations - Common
-###	DEV Environment
+### DEV Environment
 
 Server Type	DNS Name	IP
 DB	PVUKDEVKSKDB01.[DOMAIN].[Company].ORG	New
@@ -1046,7 +1089,7 @@ APP	[TBA]	25##5##5##40	[TBA]	342
 WEB	[TBA]	25##5##5##24	[TBA]	341
 Table 64 DEV Server Gateways and VLAN
 
-###	UAT Environment
+### UAT Environment
 
 Server Type	DNS Name	IP
 DB	PVUKTSTKSKDB01.[DOMAIN].[Company].ORG	17####8##1/28
@@ -1059,7 +1102,7 @@ APP	[TBA]	25##5##5##40	[TBA]	345
 WEB	[TBA]	25##5##5##24	[TBA]	344
 Table 66 UAT Server Gateways and VLAN
 
-###	PRODUCTION Environment
+### PRODUCTION Environment
 
 Server Type	DNS Name	IP
 DB	PVUKPRDKSKDB01.[DOMAIN].[Company].ORG	[TBA]/28
@@ -1072,12 +1115,13 @@ APP	[TBA]	25##5##5##40	[TBA]	348
 WEB	[TBA]	25##5##5##24	[TBA]	347
 Table 68 PROD Server Gateways and VLAN
 
-##	Client Network Connection Details
-###	Configuration of Clients on the Network 
+## Client Network Connection Details
+### Configuration of Clients on the Network 
 
 Client location	Name	Client Type	IP Address	Format	Patch Info
-#				
-#				
+-			
+-
+
 Table 69 Client IP Configuration - Specific settings
 
 Network Setting	Value
@@ -1098,8 +1142,8 @@ DNS1 Helper IP	[TBA]
 DNS2 Helper IP	[TBA]
 VLAN	410
 Table 71  Remote Site Router Configuration
-##	Network Services
-###	Network File Shares
+## Network Services
+### Network File Shares
 [Example given below:]
 DEV Environment
 Share	Shared from	Access
@@ -1133,51 +1177,110 @@ WINS	No
 NTP	Yes	TBA
 AD	No	
 SMTP	No	
+
 Table 76 Client Network Services
-##	Network Infrastructure
+
+## Network Infrastructure
+
 This section details the resulting network infrastructure
-##	Conceptual network infrastructure
+## Conceptual network infrastructure
+
 [Show where the solution is located on the various VLANs and  VNETs]
-##	Logical network view
+## Logical network view
+
 [Heavy-duty network implementations views if the project requires this.]
 ##0	Physical network view
 [Heavy-duty network implementations views if the project requires this.]
 
-##1	Switch-configuration context
+## 1 Switch-configuration context
 [Heavy-duty network implementations views if the project requires this.]
  
-#TO-BE Security Architecture
+# TO-BE Security Architecture
+
 [Describe pertinent security features, such as encryption on the move and at rest, authentication mechanisms, access-controlled roles and allowed operations, requirements for firewall, security zones, and interfaces across these zones.]
 
-##	Security Overview
-This section explains how security and compliance is implemented for the solution.
-Requirement	Implementation
-Data Sensitivity Classification	Anonymous and not commercially sensitive
-Business impact if information is disclosed	Negligible
-Business impact if data is changed by adversary?	Significant
-Implementation Approach?	Third-party application
-Security operations	Sophos AV on each client and server
-Logging of security events & data	Windows Event Logger, stored indeterminately
-Table 77 Data Compliance
+## Security Overview
 
-Requirement	Implementation
-Electrical compliance	Yes
-Desktop Support Compliance	Yes
-Waste compliance	No
-Data Protection Act	No
-PCI DSS	No
-Distance Selling Act	No
-Disability Discrimination	No
-Table 78 Legal Compliance
+[This section explains how security and compliance is implemented for the solution.]
 
-Requirement	Implementation
-How will users authenticate to the system?	There is no user authentication on client devices. All users are treated as anonymous.
-Is Active Directory to be used for authentication	No, as there is no user authentication.
-How will users gain authorisation to the system and data?	Users are not required to view system data.
-Are passwords transferred over the network in clear text?	No, as there is no user authentication.
-Highlight any part of the system not based on the least privilege model?	None.
-Table 79 Authentication, Authorisation and Access Control
-##	Security Zones
+Requirement|Implementation
+-----------|--------------
+Data Sensitivity Classification|Anonymous and not commercially sensitive
+Business impact if information is disclosed|Negligible
+Business impact if data is changed by adversary?|Significant
+Implementation Approach?|Third-party application
+Security operations|Sophos AV on each client and server
+Logging of security events & data|Windows Event Logger, stored indeterminately
+
+*Table 77: Data Compliance*
+
+Requirement|Implementation
+-----------|--------------
+Electrical compliance|Yes
+Desktop Support Compliance|Yes
+Waste compliance|No
+Data Protection Act|No
+PCI DSS|No
+Distance Selling Act|No
+Disability Discrimination|No
+
+*Table 78: Legal Compliance*
+
+Requirement|Implementation
+-----------|--------------
+How will users authenticate to the system?|There is no user authentication on client devices. All users are treated as anonymous.
+Is Active Directory to be used for authentication|No, as there is no user authentication.
+How will users gain authorisation to the system and data?|Users are not required to view system data.
+Are passwords transferred over the network in clear text?|No, as there is no user authentication.
+Highlight any part of the system not based on the least privilege model?|None.
+
+*Table 79: Authentication, Authorisation and Access Control*
+
+## Data Security
+
+*[Describe how the following aspects were incorporated into the design:]
+
+- Data is encrypted at rest
+- Data is encrypted in transit
+- Access control to data
+- Data held to ransom mitigation
+- Password implementation
+- Data integrity monitoring
+
+## System Security
+
+*[Describe how the following aspects were incorporated into the design:]
+
+- How software vulnerabilities are mitigated
+- Operating system integrity monitoring
+
+
+## Security Approaches
+
+*[Describe how the following aspects were incorporated into the design:]
+
+### Perimeter Security Approach
+
+### Zero-Trust Approach
+Treat every component, service and user as continuosly-exposed to security threats.
+- Never trust, always verify
+- Implement the least privilege
+- "Assume breach". How is the system design to aid quick recovery from break, and to minimize the attack surface?
+
+
+### Overall System Security Operations
+
+*[How are the following operations ]*
+
+Protect: Careful public information, social media, server error messages, disable unused ports & services, use honeypot decoys, use firewalls, user awareness, DKIM & SPF email validation, DNS filtering, Web filtering, network segmentation
+Detect: Rootkit checker, config checker, SSL deep packet inspection
+Respond: Sandbox
+Recover: SOP for such an event. Restore or Reimage.
+
+
+
+## Security Zones
+
 Figure xx shows the solution’s security zones and trust boundaries that are implemented by means of firewalls and switches and corresponding network policies. No confidential data is transmitted between the security zones. The zones are:
 Id	Security Zone	Description
 A	Un-trusted External	Public network
@@ -1202,13 +1305,16 @@ Figure 2 shows security zones and how they are bound to each other:
 
 
  
-###	Client Device Security
+### Client Device Security
+
 [Example, if the solution entails a dedicated client:]
-###	Secure Client Enclosure
+### Secure Client Enclosure
+
 The client consists of a barebones-PC and touch screen enclosed in a steel cabinet. When closed, the steel cabinet prevents access to the PC.
 The enclosure is secured with a barrel lock, of which there are only two keys. Both barrel keys are in the care of the deployment-location manager.
 The client device does not have a mouse or a keyboard. It is also not possible to plug a mouse or a keyboard into the PC unless access is gained into the enclosure.
-###	OS build on client devices
+### OS build on client devices
+
 [Example for security of a simple embedded client device]
 The base OS build for the client devices is one that has been accredited by [Company] System Desktop Support Services. All client devices are based on this build. The client devices are not registered on Active Directory.
 The build features the following:
@@ -1221,13 +1327,15 @@ The build features the following:
 •	No network port restrictions are in place.
 •	The client devices are not part of the XXXX Active Directory (AD) domain.
 •	
-##	Servers on the network
+## Servers on the network
+
 [Example:] The servers are built according to the standard [Company] System build, which mandates certain levels of security.
 They are virtual servers hosted on blade server housed in the Data Centre in a cage. Physical access to the data centre and the cage is controlled by security personnel.
 All servers in all 3 environments are on the XXXXX Active Directory (AD) domain.
 Remote Desktop Access is enabled and users that belong to the Remote Desktop Group can access the server desktop.
 All services run as system service accounts.
-##	Network Security
+## Network Security
+
 [Example:] Firewall policies ensure that: 
 •	The UAT web server is the only server that can connect to the test client devices. 
 •	Test Client devices can only access servers in the UAT environment.
@@ -1235,18 +1343,23 @@ All services run as system service accounts.
 #TO-BE Post-Production Architecture
 [Describe the support system in place for this solution, contact details to first line support of the respective vendors involved, how to maintain the system, steps to take for self-recovery]
 
-##	Backup and Restore
+## Backup and Restore
+
 There is no back-up and recovery process in place for the DEV environment.
 There is limited back-up and recovery process in place for the UAT environment.
 The PRODUCTION environment has full backup capabilities.
-##	System recovery
+## System recovery
+
 There is no system recovery. This is not a business-critical system.
-##	Support Model
+## Support Model
+
 Support for [component x, component y] is entirely managed by the vendor of these components.
 The remainder of this solution is supported by [Company] System's support team.
-##	Application Codebase
+## Application Codebase
+
 The vendor manages the code base for the duration of this trial.
-##	Backup and Recovery
+## Backup and Recovery
+
 In lieu of the fact this project is a trial, no backup has been implemented on any of the environments.
 Requirement	Implementation
 Backup Details	No local backups, no off-server backups, no off-site backups
@@ -1256,12 +1369,95 @@ Backup Retention	None
 Additional backup services	None
 Recovery Services	None
 Table 81 Backup and recovery design
-##	Disaster Recovery
+## Disaster Recovery
+
 There is no DR implemented for this solution.
-##	Development and Test Environments
+
+## Development and Test Environments
+
 Figure: UAT Testing Environment
-#TO-BE Operations and Support Architecture
-##	Solution Dependencies
+
+
+## Solution Deployment
+
+*[Choose one or more of these possible deployment approaches:]*
+
+### Big-Bang Deployment
+
+Application:
+
+- Only choice when an intricate database upgrade is involved
+
+Charactistics:
+
+- Requires downtime
+- Downtime needs to be short
+- Needs much preparation and testing
+- Need to have a robust roll-back plan
+- Consider data changes in roll-back plan
+
+
+### Rolling Deployment
+
+Application:
+
+- When no downtime can be afforded
+- Only exposing a small part of the system to the new deployment at any time
+- Balances Risk and User impact in a controlled way
+
+Charactistics:
+
+- Deploy to sleected servers, user groups, geographical areas
+- Repeat until entire system is updated
+- Detect anomolies early on and mitigate with roll-back
+- Reduces risk of system-wide issues
+- Slower deployment process
+
+
+### Blue-Green Deployment
+
+Charactistics:
+
+- Blue and Green environment are of similar infrastructure
+- Deploy to idle green environment while blue is still in use
+- Allows unfettered testing of complete green environment
+- Use load balancer to switch from Blue to Green
+- Roll-back by switching from Green back to Blue
+
+### Canary Deployment
+
+Application:
+
+- When targeted roll-out is required 
+- When incremental roll-out is required
+
+Charactistics:
+
+- Subset of users / servers / geographical area is selected as test subjects
+- Back-out has minimal impact
+- Combine with Rolling Deployment for best results
+
+
+### Feature Toggle
+
+Application:
+
+- Managing new features in an application
+- Need to do A/B Testing of a feature
+
+Charactistics:
+
+- Offers control for new features
+- Can add complexity to the code-base
+- Old replaced features accumulate and add to redundant code base
+
+
+
+
+# TO-BE Operations and Support Architecture
+
+## Solution Dependencies
+
 The following list is a non-exhaustive list of applications and in-flight projects within the [Company] System estate that this projects is dependent on.
 System/Project	Content	Interface	Comments	I/O
 CSD	Product Search	Web service	Hosted on CSD server	
@@ -1274,7 +1470,8 @@ System/Project	Content	Interface	Comments	I/O
 				
 				
 Table 83 Projects that are dependent on this project
-##	Operational Requirements
+## Operational Requirements
+
 This section provides an overview of the business processes affected by this solution in order to provide an understanding of the operational requirements and how the solution interacts with [Company] System's IT Operations.
 Requirement	Implementation
 Operational Requirements and Implementations
@@ -1301,11 +1498,15 @@ Remote Control	MS Terminal Services
 	SSH Terminal
 Anti-Malware	Sophos AV
 	Linux Malware Detect
+
 Table 84 Operational Requirements and Implementations
  
-#Solution Review and Assessment
-##	Technology Stack Overview
-Technology	Description
+# Solution Review and Assessment
+
+## Technology Stack Overview
+
+Technology|Description
+---|---
 SQL Server XXXX SP2
 Version	XXXX
 Decision Criteria	RDBMS storage required 98% availability
@@ -1326,114 +1527,144 @@ Version	Enterprise Edition ##
 Decision Criteria	None. Specified by client
 Options Considered	None.
 Impact of Technology Choice	None anticipated
-Table 85 Summary of all technologies used by the solution
-##	Business Requirements Document Mapping
-Ref.	Requirement	Solution implementation
-BRD-1		[Paragraph cross-references]
-BRD-2		[Paragraph cross-references]
-Table 86 BRD Mapping
-##	Functional Requirements Mapping
-Ref.	Requirement	Solution implementation
-FRS-1		[Paragraph cross-references]
-FRS-2		[Paragraph cross-references]
-Table 87 FRS Mapping
-##	Non-Functional Requirements Mapping
-Ref.	Requirement	Solution implementation
-NFR-1		[Paragraph cross-references]
-NFR-2		[Paragraph cross-references]
-Table 88 NFR Mapping
-##	Assessment against Technology Compliance
-Criteria	RAG	Rationale
-Servers and Devices
-Complexity	Green	This is a repeatable solution being deployed
-Technology	Green	Standard [Company] System application and on the roadmap
-Volumetric	Green	An increase can be comfortably accommodated
-Storage
-Complexity	Green	This is a repeatable solution being deployed
-Technology	Green	Standard [Company] System application and on the roadmap
-Volumetric	Green	An increase can be comfortably accommodated
-Network
-Complexity	Green	This is a repeatable solution being deployed
-Technology	Green	Standard [Company] System application and on the roadmap
-Volumetric	Green	An increase can be comfortably accommodated
-Infrastructure services
-Complexity	Green	This is a repeatable solution being deployed
-Technology	Green	Standard [Company] System application and on the roadmap
-Volumetric	Green	An increase can be comfortably accommodated
-Application services
-Complexity	Green	This is a repeatable solution being deployed
-Technology	Red	A non-standard [Company] System application and not on the roadmap
-Volumetric	Green	An increase can be comfortably accommodated
-Security
-Complexity	Green	This is a repeatable solution being deployed
-Technology	Green	Standard [Company] System application and on the roadmap
-Volumetric	Green	An increase can be comfortably accommodated
-Systems Management
-Complexity	Green	This is a repeatable solution being deployed
-Technology	Green	Standard [Company] System application and on the roadmap
-Volumetric	Green	An increase can be comfortably accommodated
-Table 89 Technology RAG status
-##	Community Assessment
-Question	Assessment	Comment
-How will the project impact the energy usage of IT?	Increase	[Example: New virtual servers]
-Will the project outcome impact the wider energy or fuel costs of [Company] System?	Increase	[Example: Business efficiencies will reduce overall energy costs]
-If dedicated hardware, are there any energy management systems included in the product to ensure power savings?	Yes	[Example: Power Management is enabled that scales CPU clock cycles.]
-Was energy usage a significant factor in the choice of the solution architecture?	No	[Example: Not specified by vendor]
-Other environmental impacts:	Yes	[Example: Printing]
-Table 90 Assessment against Community Assessment
-##	Assessment against IT principles
-IT Principles	RAG	Comment
-Consistent Delivery
-Establish common processes and systems worldwide		
-Change the business process before changing the package		
-Design for group repeatability – build once use many		
-Centralise development and support		
-Get it right first time
-Create an agile environment able to respond to business and systems change		
-One version of the truth – there will be one source for key business data		
-Only IT does IT		
-Automate complex jobs
-Flexible & open inter-application data exchange to reduce complexity		
-Where practical data should flow through systems, not be batched		
-Create solutions that actively identify problems and fix them		
-Understand the marketplace
-Buy before build except where there is a competitive advantage		
-Our systems are secure and legal		
-Cost-effective solutions
-We will use IT to reduce overall operating costs of the business		
-Table 91 Assessment against IT principles
 
-##	Assessment against Information principles
+*Table 85: Summary of all technologies used by the solution*
 
-###	Integration Principles
+## Business Requirements Document Mapping
+
+Requirement Ref.|Solution implementation
+-----|---
+BRD-1|*[Paragraph cross-references]*
+BRD-2|*[Paragraph cross-references]*
+
+*Table 86: BRD Mapping*
+
+## Functional Requirements Mapping
+
+Requirement Ref.|Solution implementation
+-----|---
+FRS-1|*[Paragraph cross-references]*
+FRS-2|*[Paragraph cross-references]*
+
+*Table 87: FRS Mapping*
+
+## Non-Functional Requirements Mapping
+
+Requirement Ref.|Solution implementation
+-----|---
+NFR-1|*[Paragraph cross-references]*
+NFR-2|*[Paragraph cross-references]*
+
+*Table 88: NFR Mapping*
+
+## Assessment against Technology Compliance
+
+Criteria|RAG|Rationale
+--------|---|---------
+**Servers and Devices**||
+Complexity|Green|This is a repeatable solution being deployed
+Technology|Green|Standard [Company] System application and on the roadmap
+Volumetric|Green|An increase can be comfortably accommodated
+**Storage**||
+Complexity|Green|This is a repeatable solution being deployed
+Technology|Green|Standard [Company] System application and on the roadmap
+Volumetric|Green|An increase can be comfortably accommodated
+**Network**||
+Complexity|Green|This is a repeatable solution being deployed
+Technology|Green|Standard [Company] System application and on the roadmap
+Volumetric|Green|An increase can be comfortably accommodated
+**Infrastructure services**||
+Complexity|Green|This is a repeatable solution being deployed
+Technology|Green|Standard [Company] System application and on the roadmap
+Volumetric|Green|An increase can be comfortably accommodated
+**Application services**||
+Complexity|Green|This is a repeatable solution being deployed
+Technology|Red|A non-standard [Company] System application and not on the roadmap
+Volumetric|Green|An increase can be comfortably accommodated
+**Security**||
+Complexity|Green|This is a repeatable solution being deployed
+Technology|Green|Standard [Company] System application and on the roadmap
+Volumetric|Green|An increase can be comfortably accommodated
+**Systems Management**||
+Complexity|Green|This is a repeatable solution being deployed
+Technology|Green|Standard [Company] System application and on the roadmap
+Volumetric|Green|An increase can be comfortably accommodated
+
+*Table 89: Technology RAG status*
+## Community Assessment
+
+Question|Assessment|Comment
+---|---|---
+How will the project impact the energy usage of IT?	|Increase|[Example: New virtual servers]
+Will the project outcome impact the wider energy or fuel costs of [Company] System?|Increase|[Example: Business efficiencies will reduce overall energy costs]
+If dedicated hardware, are there any energy management systems included in the product to ensure power savings?|Yes|[Example: Power Management is enabled that scales CPU clock cycles.]
+Was energy usage a significant factor in the choice of the solution architecture?|No|[Example: Not specified by vendor]
+Other environmental impacts:|Yes|[Example: Printing]
+
+*Table 90: Assessment against Community Assessment*
+## Assessment against IT principles
+
+IT Principle|RAG|Comment
+---|---|---
+Consistent Delivery||
+Establish common processes and systems worldwide||
+Change the business process before changing the package||
+Design for group repeatability – build once use many||	
+Centralise development and support||
+Get it right first time||
+Create an agile environment able to respond to business and systems change||
+One version of the truth – there will be one source for key business data||	
+Only IT does IT||
+Automate complex jobs||
+Flexible & open inter-application data exchange to reduce complexity||
+Where practical data should flow through systems, not be batched||	
+Create solutions that actively identify problems and fix them||	
+Understand the marketplace||
+Buy before build except where there is a competitive advantage||
+Our systems are secure and legal||
+Cost-effective solutions||
+We will use IT to reduce overall operating costs of the business||
+
+*Table 91: Assessment against IT principles*
+
+## Assessment against Information principles
+
+### Integration Principles
 
 Id|Principle to be met|RAG|Comment
-#|Design for group repeatability||
-#|Create an agile environment able to respond to business and systems change||
-#|The Integration Layer is for integration||
-#|Flexible and open exchange of data between applications to minimise application spaghetti||
-#|Where practical data should flow through the systems, not be daily batches||
-#|Supportability is vital||
+---|---|---|---
+1|Design for group repeatability||
+2|Create an agile environment able to respond to business and systems change||
+3|The Integration Layer is for integration||
+4|Flexible and open exchange of data between applications to minimise application spaghetti||
+5|Where practical data should flow through the systems, not be daily batches||
+6|Supportability is vital||
 
-.. and more	
+... and more	
 
-Table 92 Assessment against Integration principles
+*Table 92: Assessment against Integration principles*
 
-###	Data Principles
+### Data Principles
 
-Id	Principle to be met	RAG	Comment
-#Corporate data is described in a [Company] System way.		
-#Design for group repeatability		
-10	One version of the truth		
-11	Corporate data will be made readily available		
-12	Data must be owned and managed throughout its life		
-13	Data is clean and accurate		
-14	Our data is Secure		
-Table 93 Assessment against Data Principles
+Id|Principle to be met|RAG|Comment
+---|---|---|---
+1 |Corporate data is described in a [Company] System way.||
+2 |Design for group repeatability||
+10|One version of the truth||
+11|Corporate data will be made readily available||
+12|Data must be owned and managed throughout its life||
+13|Data is clean and accurate||
+14|Our data is Secure||
 
-##	Exceptions from [Company]'s Technology & Data Architecture principles
+... and more	
 
-Exception:	|EXP-1: [Design aspect]
+*Table 93: Assessment against Data Principles*
+
+## Exceptions from [Company]'s Technology & Data Architecture principles
+
+[List the exceptions that had to be made in this design]
+
+Exception:|EXP-1: [Design aspect]
 ---|---
 Principle:|[Principle that was broken]
 Description:|[How is this principle broken]
@@ -1441,3 +1672,297 @@ Justification:|[Why is this principle broken]
 Recovery Plan:|[How, if ever, will this be remedied]
 
 etc..
+
+# Appendix A: Interfaces
+
+The interfaces serve as a bridge between components to exchange data and events. 
+
+## API Architectural Styles
+
+
+*[Choose one or more of the following API implementation techniques, and explain why they were chosen:]*
+
+### SOAP
+
+Characteristics: 
+
+- XML-based for enterprise applications
+- Mature, but complex and verbose
+- Used in Financial Services and payment gateways
+- Overkill for lightweight and mobile applications
+
+```graphviz
+digraph SOAP {
+    rankdir=LR;
+    size="8,5"
+    Server1 [shape = box3d];
+	Server2 [shape = box3d];
+    Server1 -> Server2 [ label = "XML" ];
+}
+```
+
+### REST
+
+
+Characteristics: 
+
+- Resource-based for web servers
+- Light-weight
+- Very prevalent
+- Not optimal for real-time data
+- Not optimal for highly-connected data model
+
+
+```graphviz
+digraph REST {
+    rankdir=LR;
+    size="8,5"
+    Client [shape = box];
+	Server [shape = box3d];
+    Client -> Server [ label = "JSON Resource"];
+}
+```
+
+### ReST CRUD Operations and Responses
+
+|HTTP Verb|CRUD Operation |Collection (e.g. /customers)|Item (e.g. /customers/{id})|
+|---------|---------------|----------------------------|---------------------------|
+|POST	  |Create	      |201 (Created), 'Location' header with link to /customers/{id} containing new ID.	|404 (Not Found), 409 (Conflict).|
+|GET	  |Read	          |200 (OK), list of customers. |200 (OK), single customer. 404 (Not Found)|
+|PUT	  |Update/Replace |405 (Method Not Allowed), unless you want to update/replace every resource in the entire collection.|200 (OK) or 204 (No Content). 404 (Not Found)|
+|PATCH	  |Update/Modify  |405 (Method Not Allowed), unless you want to modify the collection itself.|200 (OK) or 204 (No Content). 404 (Not Found)|
+|DELETE	  |Delete         |405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable.|200 (OK). 404 (Not Found)|
+
+
+
+### HTTP Status Codes
+
+
+1xx Informational
+100 Continue
+101 Switching Protocols
+102 Processing (WebDAV)
+
+2xx Success
+200 OK
+201 Created
+202 Accepted
+203 Non-Authoritative Information
+204 No Content
+205 Reset Content
+206 Partial Content
+207 Multi-Status (WebDAV)
+208 Already Reported (WebDAV)
+226 IM Used
+ 
+3xx Redirection
+
+300 Multiple Choices
+301 Moved Permanently
+302 Found
+303 See Other
+304 Not Modified
+305 Use Proxy
+306 (Unused)
+307 Temporary Redirect
+308 Permanent Redirect (experimental)
+
+4xx Client Error
+400 Bad Request
+401 Unauthorized
+402 Payment Required
+403 Forbidden
+404 Not Found
+405 Method Not Allowed
+406 Not Acceptable
+407 Proxy Authentication Required
+408 Request Timeout
+409 Conflict
+410 Gone
+411 Length Required
+412 Precondition Failed
+413 Request Entity Too Large
+414 Request-URI Too Long
+415 Unsupported Media Type
+416 Requested Range Not Satisfiable
+417 Expectation Failed
+418 I'm a teapot (RFC 2324)
+420 Enhance Your Calm (Twitter)
+422 Unprocessable Entity (WebDAV)
+423 Locked (WebDAV)
+424 Failed Dependency (WebDAV)
+425 Reserved for WebDAV
+426 Upgrade Required
+428 Precondition Required
+429 Too Many Requests
+431 Request Header Fields Too Large
+444 No Response (Nginx)
+449 Retry With (Microsoft)
+450 Blocked by Windows Parental Controls (Microsoft)
+451 Unavailable For Legal Reasons
+499 Client Closed Request (Nginx)
+
+5xx Server Error
+500 Internal Server Error
+501 Not Implemented
+502 Bad Gateway
+503 Service Unavailable
+504 Gateway Timeout
+505 HTTP Version Not Supported
+506 Variant Also Negotiates (Experimental)
+507 Insufficient Storage (WebDAV)
+508 Loop Detected (WebDAV)
+509 Bandwidth Limit Exceeded (Apache)
+510 Not Extended
+511 Network Authentication Required
+598 Network read timeout error
+599 Network connect timeout error
+
+ 
+
+
+### GraphQL
+
+Characteristics: 
+
+- It is also a Query Language 
+- Flexible query capabilities
+- Able to query very specific data
+- No over-fetching or under-fetching of data
+- Reduce network load
+- Faster responses
+- Steep learning curve
+- More server-side processing
+
+
+```graphviz
+digraph GRAPHQL {
+    rankdir=LR;
+    size="8,5"
+    Client [shape = box];
+	Server [shape = box3d];
+	Data1 [shape=cylinder, fixedsize=true, width=0.5, height=0.5];
+	Data2 [shape=cylinder, fixedsize=true, width=0.5, height=0.5];
+	Data3 [shape=cylinder, fixedsize=true, width=0.5, height=0.5];
+    Client -> Server [ label = "JSON Query"];
+	Server -> Data1 [label="SQL sub-query"];
+	Server -> Data2 [label="SQL sub-query"];
+	Server -> Data3 [label="SQL sub-query"];
+	Server -> Client [label = "JSON response", style="dashed"]
+}
+```
+
+### gRPC
+
+Application:
+
+- Remote Procedure Call to other machines
+- Strongly-typed schema definition in .proto file
+- Used for micro-services architectures
+- Used in mobile applications
+- Most modern style, preferred to standard RPC
+
+Characteristics: 
+
+- High performance for network services 
+- Uses protocol buffers by default to encode structured data
+- Protocol buffer encoding is highly efficient (5x faster than JSON)
+- Uses HTTP/2
+- Very limited browser support
+- Toolset has wide language support
+
+
+```graphviz
+digraph gRPC {
+    rankdir=LR;
+    size="8,5"
+    Server1 [shape = box3d];
+	Server2 [shape = box3d];
+    Server1 -> Server2 [label = "Binary request"];
+	Server2 -> Server1 [label = "Binary response", style="dashed"];
+	
+}
+```
+
+
+
+### Websockets
+
+Application:
+
+- Persistent connections
+- Live-chat apps and real-time gaming
+
+Characteristics: 
+
+- Bi-directional
+- Real-time
+- Full-duplex TCP connection
+- Low-latency data exchange
+
+
+```graphviz
+digraph REST {
+    rankdir=LR;
+    size="8,5"
+    ClientApp1 [shape = box, label="Messenger 1"];
+	Server [shape = box3d];
+	ClientApp2 [shape = box, label="Messenger 2"];
+    ClientApp1 -> Server [label = "Hello!"];
+	Server -> ClientApp2 [label = "Push message: Hello!"]
+	ClientApp2 -> Server [label = "How are you?"]
+	Server -> ClientApp1 [label = "Push message: How are you?"]
+	
+}
+```
+
+### Webhooks
+
+Application:
+
+- Asynchronous for real-time event-driven applications
+- Used to intergrate to external services
+- When complete decouplng and resilliancy is required
+
+
+Characteristics: 
+
+- Uses HTTP
+- One of few ways web apps can inter-communicate
+- Signals an event
+- Does not request data
+- Returned data (if any) is asynchronously returned
+- Decouples asynchronously to external systems using events
+- Retries and failures can elegantly dealt with isolation
+- Often uses a message broker for resillience and failure management
+
+
+```graphviz
+digraph Webhooks {
+    rankdir=LR;
+    size="8,5"
+    AppServer [shape = box3d, label="Event generator"];
+	Broker [shape = cylinder, label="Event Broker"];
+	WebhookService [shape = box3d, label="Webhook service"];
+	Cloud [image="shapes/cloud.png"]
+	Server1 [shape=box3d, label="HTTP API 1"]
+	Server2 [shape=box3d, label="HTTP API 2"]
+	Server3 [shape=box3d, label="HTTP API 3"]
+	AppServer -> Broker [label="JSON event data"]
+	Broker -> WebhookService [label="JSON event data"]
+	WebhookService -> Cloud
+	Cloud -> Server1
+	Cloud -> Server2
+	Cloud -> Server3
+	WebhookService -> AppServer [label="async", style="dashed"];
+}
+```
+
+## Database Replication Interfaces
+
+
+
+
+
+
+

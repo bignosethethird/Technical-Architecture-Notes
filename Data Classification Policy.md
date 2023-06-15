@@ -62,7 +62,7 @@ None.
 *Data Disposal:*
 
 + All electronic data: No special handling required
-+ Printed material: Paper shredding. Paper recyling allowed.
++ Printed material: Paper shredding. Paper recycling allowed.
 
 
 ### Confidential

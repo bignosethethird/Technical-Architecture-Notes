@@ -1,15 +1,18 @@
-|****|NFR-* NonfunctionalRequirement|
-|---|---|
+---
+title: "Non-functional Requirements"
+output: "Non-functional Requirements.pdf"
+---
 
+[TOC]
+
+
+|**NFR-x**|**NonfunctionalRequirement**|
+|---|---|
 |**Source:**| |**Owner:**| |**Priority:**| |
 | :---: | --- |---| --- |---| --- |
-
-|**Description:
-
-**|
+|**Description:**|
 |---|
-| ddddddd|
-
+|*[description]*|
 |**Benefits:**|
 | :---: |
 | bbbbbbbb|
@@ -29,13 +32,16 @@ It is the intent to []. This document describes the non-functional requirements 
 # Issues and Assumptions	
 
 ## ASM-1:	Enterprise Monitoring System	
+
 Assumption: No enterprise-wide application monitoring solution exists in BAE
 Consideration: This is currently being investigated. For the purposes of this NFR, it is assumed that the NAGIOS solution will eventually be accepted as the tool of choice.
 
 ## ASM-2:	Message-based protocol	
+
 Assumption: No enterprise-wide cross-platform message-based protocol exists at BAE
 
 ## ASM-3:	Data Backups
+
 Assumption: In the apparent absence of an enterprise architecture mandate for data backups, data retention, data restoring and data vaulting, this doc defines these issues.
 Consideration: Data management-related procedures will be amended once these mandates are finalized
 
@@ -121,9 +127,11 @@ Description:
 
 Uptime calculation based on 10 minutes downtime per week:
 
-(System Availability – Acceptable Downtime)/( System Availability) * 100 %
+$$(System Availability – Acceptable Downtime)/( System Availability) * 100 %$$
+
 e.g.
-(12x60x365 – 10*52)/( 12x60x365) * 100 = 99.8%
+
+$$(12x60x365 – 10*52)/( 12x60x365) * 100 = 99.8 %$$
 
 NFR-17: Backup of client devices
 
