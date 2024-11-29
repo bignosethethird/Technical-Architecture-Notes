@@ -1,5 +1,5 @@
 #	Core Architecture Principles
-_Overview:_ The core architecture principles provide a guide for architecting a sound solution. A solution should strive to comply with all of [company]'s architecture principles. The architecture principles are not mutually exclusive and on in certain cases they may conflict with each other in the context of the business requirements and the final implementation. It is therefore not possible to adhere completely to all these principles. Solutions will, however be scrutinized against these principles as a guide to solution quality.
+_Overview:_ The core architecture principles provide a guide for architecting a sound solution. A solution should strive to comply with all of SuccessionWealth's architecture principles. The architecture principles are not mutually exclusive and on in certain cases they may conflict with each other in the context of the business requirements and the final implementation. It is therefore not possible to adhere completely to all these principles. Solutions will, however be scrutinized against these principles as a guide to solution quality.
 The 6 core architecture principles are:
 ##	Simplicity
 IT solutions must be:
@@ -52,9 +52,9 @@ See also:
 *	Cost effective
 *	Simple
 ### 	Consistent, intuitive user interface
-Applications must follow the appropriate [company] standards and guidelines for user interface design.
-_Rationale:_ Our users should have a consistent experience across [company] applications, with a common [company] look and feel that is intuitive to use and simple to support.
-_Implications:_ All internally developed applications must follow the appropriate standards and guidelines for the user interface. Single-¬sign¬on must be provided where possible. Customer facing applications must always follow the [company] brand guidelines.
+Applications must follow the appropriate SuccessionWealth standards and guidelines for user interface design.
+_Rationale:_ Our users should have a consistent experience across SuccessionWealth applications, with a common SuccessionWealth look and feel that is intuitive to use and simple to support.
+_Implications:_ All internally developed applications must follow the appropriate standards and guidelines for the user interface. Single-¬sign¬on must be provided where possible. Customer facing applications must always follow the SuccessionWealth brand guidelines.
 See also:
 *	Simple
 *	Supportable
@@ -66,7 +66,7 @@ See also:
 *	Simple +Supportable
 ### 	Repeatable
 Applications must be architected to be repeatable.
-_Rationale:_ Applications must be architected to be repeatable across the [company] Group, so that we can develop once and deploy many times. It is most cost effective to build the ability to use applications internationally when they are initially designed.
+_Rationale:_ Applications must be architected to be repeatable across the SuccessionWealth Group, so that we can develop once and deploy many times. It is most cost effective to build the ability to use applications internationally when they are initially designed.
 _Implications: Applications must be designed for repeatability, internationally across the Group, including:_ Character set; multiple languages; multiple currencies; legal requirements. It must be clear at initiation of the build phase, which countries, languages and currencies are to be supported. Where global or regional instances are required applications must not require separate instances to support multiple languages, currencies, legal requirements, etc.
 See also:
 *	Repeatable
@@ -106,7 +106,7 @@ See also:
 *	Agile
 *	Repeatable
 ### 	Industry standards based
-Applications must use [company]'s preferred relevant industry standards.
+Applications must use SuccessionWealth's preferred relevant industry standards.
 _Rationale:_ Using open industry standards will enable easier engagement with our partners and help us and our partners to reduce costs.
 _Implications:_ All applications must adopt the relevant open industry standards.
 See also:
@@ -148,8 +148,8 @@ See also:
 *	Cost effective
 ### 3	Packaged application implementation
 When implementing a packaged application from an external vendor customisations must be avoided. We must fit our business processes with the chosen application package rather than change the application. Applications must be hosted internally as a first choice.
-_Rationale:_ To help ensure simple, cost effective applications. Vanilla packages are easier and less costly to maintain and upgrade than packages which have been customised with [company]¬specific developments. Packages are primarily implemented to support processes where [company] has little competitive advantage and there is therefore unlikely to be significant business benefit in customising them. It is usually more cost effective to host applications internally.
-_Implications:_ If [company]'s processes do not fit the processes in the package, then we must first try to change our processes to fit the package, before customisation is considered. Package customisation must be kept to a minimum and must be signed¬off prior to development. Approved package customisation must be delivered as a bolt¬on to the application, with as little change to delivered code as possible to ensure that upgrades can be delivered effectively. Suppliers must sign-up to ongoing improvement and management of customisations. Third party hosted applications must be avoided where possible; when external hosting is agreed the solution must be capable of being monitored and have clear SLAs.
+_Rationale:_ To help ensure simple, cost effective applications. Vanilla packages are easier and less costly to maintain and upgrade than packages which have been customised with SuccessionWealth¬specific developments. Packages are primarily implemented to support processes where SuccessionWealth has little competitive advantage and there is therefore unlikely to be significant business benefit in customising them. It is usually more cost effective to host applications internally.
+_Implications:_ If SuccessionWealth's processes do not fit the processes in the package, then we must first try to change our processes to fit the package, before customisation is considered. Package customisation must be kept to a minimum and must be signed¬off prior to development. Approved package customisation must be delivered as a bolt¬on to the application, with as little change to delivered code as possible to ensure that upgrades can be delivered effectively. Suppliers must sign-up to ongoing improvement and management of customisations. Third party hosted applications must be avoided where possible; when external hosting is agreed the solution must be capable of being monitored and have clear SLAs.
 See also:
 *	Repeatable
 *	Agile
@@ -187,10 +187,10 @@ _Implications:_ Data models must be developed to support future regional and int
 See also:
 *	Repeatable
 *	Simple
-### 9	[company] data model
-Corporate data must be described in a [company] way.
+### 9	SuccessionWealth data model
+Corporate data must be described in a SuccessionWealth way.
 _Rationale:_ Standardisation reduces the duplication of data entry and maintenance efforts. Interoperability of systems and data allows business processes to be more flexible and adaptive to changing needs. Poor information does not become a barrier to business growth.
-_Implications:_ A [company] corporate data model must be maintained to ensure a common understanding of data. The [company] corporate data model describes common data definitions and terminology and must be used to describe data in a consistent way across applications. There is a cost to standardisation and a trade¬off analysis should be done.
+_Implications:_ A SuccessionWealth corporate data model must be maintained to ensure a common understanding of data. The SuccessionWealth corporate data model describes common data definitions and terminology and must be used to describe data in a consistent way across applications. There is a cost to standardisation and a trade¬off analysis should be done.
 See also:
 *	Agile
 *	Repeatable
@@ -198,7 +198,7 @@ See also:
 ### 0	Common toolsets
 Strategic tools are provided for data access and must be used for maintaining and accessing databases.
 _Rationale:_ Re¬use of common toolsets to maintain and access data means that the cost of tool licenses are reduced and skills and support can be focused on specific recommended technologies.
-_Implications:_ We have standard tools that are fully understood within the business and supportable centrally by the [company] Technology Team. Standard tools must be used by new projects that require data access.
+_Implications:_ We have standard tools that are fully understood within the business and supportable centrally by the SuccessionWealth Technology Team. Standard tools must be used by new projects that require data access.
 See also:
 *	Supportable
 ### 1	Persisting data
@@ -216,8 +216,8 @@ See also:
 *	Repeatable
 *	Cost effective
 ### 3	Data lifecycle and purging
-The lifecylce of data must be managed. Data that no longer has any value to [company] or external legal entities must be purged.
-_Rationale:_ Data must be managed throughout its lifecycle including so that the data maintained in our systems is up to date and relevant. If data is no longer of any value to [company] it is using up valuable storage resource for no benefit. This data must be purged to prevent it interfering with useful data by increasing search times. We are obliged to provide any data we hold for legal reasons; as such we should purge it if it is not required.
+The lifecylce of data must be managed. Data that no longer has any value to SuccessionWealth or external legal entities must be purged.
+_Rationale:_ Data must be managed throughout its lifecycle including so that the data maintained in our systems is up to date and relevant. If data is no longer of any value to SuccessionWealth it is using up valuable storage resource for no benefit. This data must be purged to prevent it interfering with useful data by increasing search times. We are obliged to provide any data we hold for legal reasons; as such we should purge it if it is not required.
 _Implications:_ Data lifecycle management must be included in solution architectures. There must be a process in place for purging data that is no longer required. The process for identifying what data needs to be purged, how to design for ease of purging (i.e. database partitioning), how data will be purged and how often needs to be defined as part of a solution architecture.
 See also:
 *	Cost effective
@@ -259,14 +259,14 @@ See also:
 ### 	Integration layer re¬usability
 The integration layer must be re¬usable across group. Systems must be designed to maximise the re-use of existing interfaces in the integration layer where possible.
 _Rationale:_ The flexible and open exchange of data between applications will minimise complexity and application spaghetti. Re¬using the integration across the group will make solutions repatable and increase cost effectiveness.
-_Implications:_ The integration layer must be designed to be re¬used across the [company] group. Solutions must re¬use existing interfaces in the integration layer where possible. Common coding standards must be followed for ease of maintenance. Ensure interfaces are versioned to ensure backward compatibility.
+_Implications:_ The integration layer must be designed to be re¬used across the SuccessionWealth group. Solutions must re¬use existing interfaces in the integration layer where possible. Common coding standards must be followed for ease of maintenance. Ensure interfaces are versioned to ensure backward compatibility.
 See also:
 *	Repeatable
 *	Cost effective
-### 	[company] common form
-Data in the integration layer must be translated into a generic [company] specific format, commonly referred to as a common or canonical form
-_Rationale:_ Translation of all data in the integration layer to the [company] canonical form will help to remove direct coupling between systems.
-_Implications:_ All [company] data which flows through the integration layer must be translated to [company] common form.
+### 	SuccessionWealth common form
+Data in the integration layer must be translated into a generic SuccessionWealth specific format, commonly referred to as a common or canonical form
+_Rationale:_ Translation of all data in the integration layer to the SuccessionWealth canonical form will help to remove direct coupling between systems.
+_Implications:_ All SuccessionWealth data which flows through the integration layer must be translated to SuccessionWealth common form.
 See also:
 *	Agile
 *	Repeatable
@@ -302,7 +302,7 @@ See also:
 ##	Security
 ### 	Solution Security
 All solutions must comply with legal and regulatory requirements and internal good practice that supports the requirements that originate from the data classification policies.
-_Rationale:_ We must run the business safely for ourselves and our customers and be in compliance where required (although there are no obvious examples at [company] as yet), in order to protect the [company] brand, shareholders and the customers.
+_Rationale:_ We must run the business safely for ourselves and our customers and be in compliance where required (although there are no obvious examples at SuccessionWealth as yet), in order to protect the SuccessionWealth brand, shareholders and the customers.
 _Implications:_ All solutions must show om the architecture documentation detail how this policy is met. Any architectural exceptions must go through the appropriate governance and exception processes.
 ### 	"Defence in Depth"
 It is risky to rely on a single security control on a system to enforce security on sensitive data or system access. By using multiple layers of security such that failure of one layer does not compromise the entire solution.
@@ -310,19 +310,19 @@ _Rationale:_ Security solutions can fail and when this happens it is important t
 _Implications:_ The solution architecture must use multiple layers of security where appropriate, and this needs to be documented and agreed to be either be sufficient or not, or excessive.
 ### 	Reference architecture, patterns and standards
 The solution architecture must re¬use existing security infrastructure and patterns and comply with standards and support the requirements that arrise from the data classification policy. Where no appropriate existing standard exists, a new standard must be defined that includes the necessary security protections and is reviewed for compliance with information security policies.
-_Rationale:_ Re¬use can shorten implementation times, reduce the technical and user¬journey complexity, reduce initial and ongoing costs, and deliver consistent, high levels of security and minimal customer disruption to new solutions with minimal effort. Tactical solutions are by their nature not secure or cost effective and weakens [company]'s overall security position.
+_Rationale:_ Re¬use can shorten implementation times, reduce the technical and user¬journey complexity, reduce initial and ongoing costs, and deliver consistent, high levels of security and minimal customer disruption to new solutions with minimal effort. Tactical solutions are by their nature not secure or cost effective and weakens SuccessionWealth's overall security position.
 _Implications:_ Solution architectures must re¬use existing appropriate security infrastructure (e.g. vulnerability scanning, security incident and event management, web application firewalls, intrusion detection, etc.) and patterns. Where patterns and standards do not exist, new ones must be defined and approved to ensure future compliance. Non¬compliance must be clearly identified in solution architecture documentation and agreed with by the EA.
 ### 	Data Classification and Protection
-All data held on [company]¬managed systems must be classified according to [company]'s Data Classification Policy. This determines how the data is stored, transferred, managed and protected. Data must be protected according to its content and value. It is imprudent to expend unnecessary effort on protecting a data asset where the effort is not commensurate with the value of it, or does not need to be protected to such a degree based on its Data Classification.
+All data held on SuccessionWealth¬managed systems must be classified according to SuccessionWealth's Data Classification Policy. This determines how the data is stored, transferred, managed and protected. Data must be protected according to its content and value. It is imprudent to expend unnecessary effort on protecting a data asset where the effort is not commensurate with the value of it, or does not need to be protected to such a degree based on its Data Classification.
 _Rationale:_ Protecting data costs money. By understanding the data classification and assessing the impact of a data breach, an appropriate security approach can be selected to protect the data.
 _Implications:_ Solution architecture must document all data repositories and data flows. This must include a business function of the data, what fields are present, volumetrics, sensitivity, type of data, in¬transit encryption, data ownership and Data Classification.
 ### 	Know our risks
 Solution architectures must be risk assessed against the threats, vulnerabilities and impacts that the system is perceived to have. The impact of losing availability, integrity or confidentiality of data must be understood. This assessment must be continued once a solution is operational in order to continually evaluate and mitigate against new threats and vulnerabilities.
-_Rationale:_ We need to take a risk based approach to understand emerging security threats and the risk of potential impact to [company]. This will maintain the risk profile to a level acceptable to [company].
+_Rationale:_ We need to take a risk based approach to understand emerging security threats and the risk of potential impact to SuccessionWealth. This will maintain the risk profile to a level acceptable to SuccessionWealth.
 _Implications:_ Solution architectures must be risk assessed against all possible threats, weaknesses and impacts. We must understand how a breach of confidentiality, integrity, or availability can happen and what the impact would be.
 ### 	Data accessibility drives segregation model
 Data with similar security or accessibility requirements must share the same security zones. Segregation models must be respected, e.g. network segregation and tiers. All network zones must be classified by trust according to the trust standard and controls must exist at these boundaries to provide segregation and reduce the identified risks.
-_Rationale:_ This policy reduces the number of security solutions required but maintains the correct level of security for each set of data. Segregation models are core to regulatory compliance schemes such as PCI¬DSS. They also prevent inappropriate access to systems and data. Failure to appropriately segregate networks, environments or solutions may lead to inappropriate access to customer data, weaken security and lower customer confidence in [company]. Our inability to comply with regulations such as PCI¬DSS and the Data Protection Act will lead to fines and reputational damage.
+_Rationale:_ This policy reduces the number of security solutions required but maintains the correct level of security for each set of data. Segregation models are core to regulatory compliance schemes such as PCI¬DSS. They also prevent inappropriate access to systems and data. Failure to appropriately segregate networks, environments or solutions may lead to inappropriate access to customer data, weaken security and lower customer confidence in SuccessionWealth. Our inability to comply with regulations such as PCI¬DSS and the Data Protection Act will lead to fines and reputational damage.
 _Implications:_ Solutions must be architected to ensure that data with similar security or accessibility requirements share the same security zones. All network zones must be classified by trust (trusted, semi¬trusted, un¬trusted, restricted) according to the trust standard and controls must exist at these boundaries to provide segregation and reduce the identified risks.
 ### 	Access¬ authentication & authorisation
 Authentication must be done against the Group's directory solution. Authorisation must be done against groups in the Group's directory solution.
@@ -371,21 +371,21 @@ See also:
 *	Repeatable
 ### 	Standard Infrastructure Components
 Standard infrastructure components must be used to support solutions. A shared technical service is based on one design and is comprised of standard infrastructure components.
-_Rationale:_ Reduces variation in the IT estate which makes support simpler for [company], lowers maintenance costs and increases reliability. Accommodating change will be easier
+_Rationale:_ Reduces variation in the IT estate which makes support simpler for SuccessionWealth, lowers maintenance costs and increases reliability. Accommodating change will be easier
 _Implications:_ We may have to trade off increased functionality against the need to maintain IT across a large estate
 See also:
 *	Simple
 *	Supportable
 ### 	Disaster Recovery (DR)
 Critical systems must have disaster recovery in place. Recovery times in the event of a disaster must be agreed and signed off by the business. The recovery order (priority) for systems in the event of DR must be established and agreed with business owners.
-_Rationale:_ Systems that are critical to keep [company] trading must be available in the event of a disaster. Provides clear prioritisation to enable effective targetting of resources after an incident. Allows an effective DR plan to be created.
+_Rationale:_ Systems that are critical to keep SuccessionWealth trading must be available in the event of a disaster. Provides clear prioritisation to enable effective targetting of resources after an incident. Allows an effective DR plan to be created.
 _Implications:_ Critical systems are identified, system DR is fully integrated into business continuity plans. DR plan, site, infrastructure and procedures are in place.
 See also:
 *	Supportable
 ### 	Centralised Infrastructure
 Infrastructure must be centralised into a data centre wherever possible. Workloads that cannot be run in a data centre must be run on local shared infrastructure.
 _Rationale:_ Using centralised infrastructure makes more efficient use of resources and is simpler to operate. If we have to deploy a workload locally we must ensure the infrastructure can be used by other applications / workloads
-_Implications:_ We need to ensure that the business SLA can be met and that the impact on network bandwidth and cost is understood. Governance and accountability for managing local shared infrastructure (e.g. [company] server in a bank) needs to be clear
+_Implications:_ We need to ensure that the business SLA can be met and that the impact on network bandwidth and cost is understood. Governance and accountability for managing local shared infrastructure (e.g. SuccessionWealth server in a bank) needs to be clear
 See also:
 *	Cost effective
 *	Supportable
@@ -450,7 +450,7 @@ See also:
 *	Simple
 ### 5	Network and Authentication Services
 Network and authentication services such as Identity, Directory, Authentication, DNS, DHCP, NTP and I address management must be integrated across Group.
-_Rationale:_ Network and authentication services have to be integrated to allow a service to be referenced from anywhere within [company] (e.g. global applications).
+_Rationale:_ Network and authentication services have to be integrated to allow a service to be referenced from anywhere within SuccessionWealth (e.g. global applications).
 _Implications:_ We adhere to Group standards for network and authentication services
 See also:
 *	Simple
