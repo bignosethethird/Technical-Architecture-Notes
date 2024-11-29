@@ -1,7 +1,7 @@
 # Architecture Principles
 
 *Overview*
-The architecture principles provide a guide for architecting a sound solution. A solution should strive to comply with all of _[company]_'s architecture principles. The architecture principles are not mutually exclusive and on in certain cases they may conflict with each other in the context of the business requirements and the final implementation. It is therefore not possible to adhere completely to all these principles. Solutions will, however be scrutinized against these principles as a guide to solution quality.
+The architecture principles provide a guide for architecting a sound solution. A solution should strive to comply with all of SuccessionWealth's architecture principles. The architecture principles are not mutually exclusive and on in certain cases they may conflict with each other in the context of the business requirements and the final implementation. It is therefore not possible to adhere completely to all these principles. Solutions will, however be scrutinized against these principles as a guide to solution quality.
 
 ## Core architecture principles
 
